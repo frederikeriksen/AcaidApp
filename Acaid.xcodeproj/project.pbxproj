@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF1EE42C1F8D006400F45A98 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1EE42B1F8D006400F45A98 /* LoginViewController.swift */; };
+		EF1EE42F1F8D00A700F45A98 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1EE42E1F8D00A700F45A98 /* RegisterViewController.swift */; };
 		EFFEE0731F8BBA0500D4294A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFEE0721F8BBA0500D4294A /* AppDelegate.swift */; };
 		EFFEE0751F8BBA0500D4294A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFEE0741F8BBA0500D4294A /* ViewController.swift */; };
 		EFFEE0781F8BBA0500D4294A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFFEE0761F8BBA0500D4294A /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF1EE42B1F8D006400F45A98 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF1EE42E1F8D00A700F45A98 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EFFEE06F1F8BBA0500D4294A /* Acaid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acaid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFFEE0721F8BBA0500D4294A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFFEE0741F8BBA0500D4294A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +78,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF1EE42D1F8D006900F45A98 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EF1EE42B1F8D006400F45A98 /* LoginViewController.swift */,
+				EFFEE0741F8BBA0500D4294A /* ViewController.swift */,
+				EF1EE42E1F8D00A700F45A98 /* RegisterViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EF1EE4311F8D00F600F45A98 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		EF1EE4321F8D00FD00F45A98 /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
 		EFFEE0661F8BBA0500D4294A = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +125,10 @@
 		EFFEE0711F8BBA0500D4294A /* Acaid */ = {
 			isa = PBXGroup;
 			children = (
+				EF1EE4321F8D00FD00F45A98 /* models */,
+				EF1EE4311F8D00F600F45A98 /* Views */,
+				EF1EE42D1F8D006900F45A98 /* Controllers */,
 				EFFEE0721F8BBA0500D4294A /* AppDelegate.swift */,
-				EFFEE0741F8BBA0500D4294A /* ViewController.swift */,
 				EFFEE0761F8BBA0500D4294A /* Main.storyboard */,
 				EFFEE0791F8BBA0500D4294A /* Assets.xcassets */,
 				EFFEE07B1F8BBA0500D4294A /* LaunchScreen.storyboard */,
@@ -259,8 +289,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF1EE42C1F8D006400F45A98 /* LoginViewController.swift in Sources */,
 				EFFEE0751F8BBA0500D4294A /* ViewController.swift in Sources */,
 				EFFEE0731F8BBA0500D4294A /* AppDelegate.swift in Sources */,
+				EF1EE42F1F8D00A700F45A98 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +539,7 @@
 				EFFEE0991F8BBA0500D4294A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EFFEE09A1F8BBA0500D4294A /* Build configuration list for PBXNativeTarget "AcaidTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +548,7 @@
 				EFFEE09C1F8BBA0500D4294A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EFFEE09D1F8BBA0500D4294A /* Build configuration list for PBXNativeTarget "AcaidUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +557,7 @@
 				EFFEE09F1F8BBA0500D4294A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
