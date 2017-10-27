@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F2D2B540DAD7681BEF44A15 /* Pods_Acaid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F8ED5422149D1A07173A358 /* Pods_Acaid.framework */; };
+		8468ECDFA1933C9E2F197A26 /* libPods-AcaidTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8A584023F138035FD81B25 /* libPods-AcaidTests.a */; };
+		A9F64B267C9D1565D81395AC /* libPods-AcaidUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E4DE908D9CC628322D5F7F /* libPods-AcaidUITests.a */; };
 		EF1EE42C1F8D006400F45A98 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1EE42B1F8D006400F45A98 /* LoginViewController.swift */; };
 		EF1EE42F1F8D00A700F45A98 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1EE42E1F8D00A700F45A98 /* RegisterViewController.swift */; };
+		EFE861301FA3672200111FD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFE8612F1FA3672200111FD2 /* GoogleService-Info.plist */; };
 		EFFEE0731F8BBA0500D4294A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFEE0721F8BBA0500D4294A /* AppDelegate.swift */; };
 		EFFEE0751F8BBA0500D4294A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFEE0741F8BBA0500D4294A /* ViewController.swift */; };
-		EFFEE0781F8BBA0500D4294A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFFEE0761F8BBA0500D4294A /* Main.storyboard */; };
 		EFFEE07A1F8BBA0500D4294A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFFEE0791F8BBA0500D4294A /* Assets.xcassets */; };
 		EFFEE07D1F8BBA0500D4294A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFFEE07B1F8BBA0500D4294A /* LaunchScreen.storyboard */; };
 		EFFEE0881F8BBA0500D4294A /* AcaidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFEE0871F8BBA0500D4294A /* AcaidTests.swift */; };
@@ -36,12 +39,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2859C26B1D9FA6CAD1688329 /* Pods-Acaid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Acaid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Acaid/Pods-Acaid.debug.xcconfig"; sourceTree = "<group>"; };
+		39E4DE908D9CC628322D5F7F /* libPods-AcaidUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AcaidUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B8A584023F138035FD81B25 /* libPods-AcaidTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AcaidTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DF66AEB490380DA345EFD42 /* Pods-AcaidTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcaidTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcaidTests/Pods-AcaidTests.release.xcconfig"; sourceTree = "<group>"; };
+		8F8ED5422149D1A07173A358 /* Pods_Acaid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Acaid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB9C604303DDE3DD89062845 /* Pods-AcaidUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcaidUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcaidUITests/Pods-AcaidUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EB713C5A00F8B958BE8E8BFE /* Pods-AcaidUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcaidUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AcaidUITests/Pods-AcaidUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF1EE42B1F8D006400F45A98 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EF1EE42E1F8D00A700F45A98 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		EFE8612F1FA3672200111FD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EFFEE06F1F8BBA0500D4294A /* Acaid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acaid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFFEE0721F8BBA0500D4294A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFFEE0741F8BBA0500D4294A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EFFEE0771F8BBA0500D4294A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFFEE0791F8BBA0500D4294A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFFEE07C1F8BBA0500D4294A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EFFEE07E1F8BBA0500D4294A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +61,8 @@
 		EFFEE08E1F8BBA0500D4294A /* AcaidUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AcaidUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFFEE0921F8BBA0500D4294A /* AcaidUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcaidUITests.swift; sourceTree = "<group>"; };
 		EFFEE0941F8BBA0500D4294A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9C22B17B1D287999392C931 /* Pods-AcaidTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcaidTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AcaidTests/Pods-AcaidTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FFB0911F24355AC0359E0797 /* Pods-Acaid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Acaid.release.xcconfig"; path = "Pods/Target Support Files/Pods-Acaid/Pods-Acaid.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F2D2B540DAD7681BEF44A15 /* Pods_Acaid.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8468ECDFA1933C9E2F197A26 /* libPods-AcaidTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +86,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9F64B267C9D1565D81395AC /* libPods-AcaidUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B3C43DF87B666EAA66EB6C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F8ED5422149D1A07173A358 /* Pods_Acaid.framework */,
+				3B8A584023F138035FD81B25 /* libPods-AcaidTests.a */,
+				39E4DE908D9CC628322D5F7F /* libPods-AcaidUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		529D3E58741AA86A9D7C6A11 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2859C26B1D9FA6CAD1688329 /* Pods-Acaid.debug.xcconfig */,
+				FFB0911F24355AC0359E0797 /* Pods-Acaid.release.xcconfig */,
+				F9C22B17B1D287999392C931 /* Pods-AcaidTests.debug.xcconfig */,
+				7DF66AEB490380DA345EFD42 /* Pods-AcaidTests.release.xcconfig */,
+				EB713C5A00F8B958BE8E8BFE /* Pods-AcaidUITests.debug.xcconfig */,
+				CB9C604303DDE3DD89062845 /* Pods-AcaidUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EF1EE42D1F8D006900F45A98 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,13 +124,6 @@
 				EF1EE42E1F8D00A700F45A98 /* RegisterViewController.swift */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		EF1EE4311F8D00F600F45A98 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
 			sourceTree = "<group>";
 		};
 		EF1EE4321F8D00FD00F45A98 /* models */ = {
@@ -109,6 +140,8 @@
 				EFFEE0861F8BBA0500D4294A /* AcaidTests */,
 				EFFEE0911F8BBA0500D4294A /* AcaidUITests */,
 				EFFEE0701F8BBA0500D4294A /* Products */,
+				529D3E58741AA86A9D7C6A11 /* Pods */,
+				4B3C43DF87B666EAA66EB6C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,13 +159,12 @@
 			isa = PBXGroup;
 			children = (
 				EF1EE4321F8D00FD00F45A98 /* models */,
-				EF1EE4311F8D00F600F45A98 /* Views */,
 				EF1EE42D1F8D006900F45A98 /* Controllers */,
 				EFFEE0721F8BBA0500D4294A /* AppDelegate.swift */,
-				EFFEE0761F8BBA0500D4294A /* Main.storyboard */,
 				EFFEE0791F8BBA0500D4294A /* Assets.xcassets */,
 				EFFEE07B1F8BBA0500D4294A /* LaunchScreen.storyboard */,
 				EFFEE07E1F8BBA0500D4294A /* Info.plist */,
+				EFE8612F1FA3672200111FD2 /* GoogleService-Info.plist */,
 			);
 			path = Acaid;
 			sourceTree = "<group>";
@@ -162,9 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFFEE0971F8BBA0500D4294A /* Build configuration list for PBXNativeTarget "Acaid" */;
 			buildPhases = (
+				E7F49298DC467821B86EEF85 /* [CP] Check Pods Manifest.lock */,
 				EFFEE06B1F8BBA0500D4294A /* Sources */,
 				EFFEE06C1F8BBA0500D4294A /* Frameworks */,
 				EFFEE06D1F8BBA0500D4294A /* Resources */,
+				9CD9029393DFDBB3C692337F /* [CP] Embed Pods Frameworks */,
+				90E0B89EBB824766EF83A322 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -179,9 +214,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFFEE09A1F8BBA0500D4294A /* Build configuration list for PBXNativeTarget "AcaidTests" */;
 			buildPhases = (
+				5B15FB8F3D28F5EF382A53C4 /* [CP] Check Pods Manifest.lock */,
 				EFFEE07F1F8BBA0500D4294A /* Sources */,
 				EFFEE0801F8BBA0500D4294A /* Frameworks */,
 				EFFEE0811F8BBA0500D4294A /* Resources */,
+				5364EF280B01D2D730074A63 /* [CP] Embed Pods Frameworks */,
+				DC0F708102BC58689B1C5554 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,9 +235,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFFEE09D1F8BBA0500D4294A /* Build configuration list for PBXNativeTarget "AcaidUITests" */;
 			buildPhases = (
+				61C21BA75702FABF94459FD2 /* [CP] Check Pods Manifest.lock */,
 				EFFEE08A1F8BBA0500D4294A /* Sources */,
 				EFFEE08B1F8BBA0500D4294A /* Frameworks */,
 				EFFEE08C1F8BBA0500D4294A /* Resources */,
+				9E0950549ADA9AC99CD2D482 /* [CP] Embed Pods Frameworks */,
+				ECF62BCE2F27FE3C1542D641 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -263,8 +304,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFFEE07D1F8BBA0500D4294A /* LaunchScreen.storyboard in Resources */,
+				EFE861301FA3672200111FD2 /* GoogleService-Info.plist in Resources */,
 				EFFEE07A1F8BBA0500D4294A /* Assets.xcassets in Resources */,
-				EFFEE0781F8BBA0500D4294A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +324,162 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5364EF280B01D2D730074A63 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcaidTests/Pods-AcaidTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B15FB8F3D28F5EF382A53C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AcaidTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61C21BA75702FABF94459FD2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AcaidUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90E0B89EBB824766EF83A322 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Acaid/Pods-Acaid-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CD9029393DFDBB3C692337F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Acaid/Pods-Acaid-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Acaid/Pods-Acaid-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E0950549ADA9AC99CD2D482 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcaidUITests/Pods-AcaidUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC0F708102BC58689B1C5554 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcaidTests/Pods-AcaidTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7F49298DC467821B86EEF85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Acaid-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECF62BCE2F27FE3C1542D641 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AcaidUITests/Pods-AcaidUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EFFEE06B1F8BBA0500D4294A /* Sources */ = {
@@ -328,14 +525,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EFFEE0761F8BBA0500D4294A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EFFEE0771F8BBA0500D4294A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EFFEE07B1F8BBA0500D4294A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -444,6 +633,7 @@
 		};
 		EFFEE0981F8BBA0500D4294A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2859C26B1D9FA6CAD1688329 /* Pods-Acaid.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Acaid/Info.plist;
@@ -456,6 +646,7 @@
 		};
 		EFFEE0991F8BBA0500D4294A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFB0911F24355AC0359E0797 /* Pods-Acaid.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Acaid/Info.plist;
@@ -468,6 +659,7 @@
 		};
 		EFFEE09B1F8BBA0500D4294A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9C22B17B1D287999392C931 /* Pods-AcaidTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -482,6 +674,7 @@
 		};
 		EFFEE09C1F8BBA0500D4294A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DF66AEB490380DA345EFD42 /* Pods-AcaidTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -496,6 +689,7 @@
 		};
 		EFFEE09E1F8BBA0500D4294A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB713C5A00F8B958BE8E8BFE /* Pods-AcaidUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = AcaidUITests/Info.plist;
@@ -509,6 +703,7 @@
 		};
 		EFFEE09F1F8BBA0500D4294A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB9C604303DDE3DD89062845 /* Pods-AcaidUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = AcaidUITests/Info.plist;
