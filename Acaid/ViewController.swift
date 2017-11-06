@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         self.view.addSubview(navBar)
         let navItem = UINavigationItem(title: "Username")
         let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(logoutTest(sender:)))
+        let search = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: #selector(searchFunc(sender:)))
+        navItem.leftBarButtonItem = search
         navItem.rightBarButtonItem = button
         navBar.setItems([navItem], animated: false)
 
@@ -51,6 +53,13 @@ class ViewController: UIViewController {
         let loginVC = LoginViewController()
         self.present(loginVC, animated: true, completion: nil)
         
+    }
+    
+    // Search function
+    func searchFunc(sender: UIButton) {
+    
+        // Search
+    
     }
 
 }
