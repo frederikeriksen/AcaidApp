@@ -7,24 +7,51 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
-
+    
+    let testButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        print("hi")
-        print("hello")
-        print("geroge")
-        print("beinir")
+        self.view.backgroundColor = UIColor.white
+        
+        let navBar : UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
+        self.view.addSubview(navBar)
+        let navItem = UINavigationItem(title: "Username")
+        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(logoutTest(sender:)))
+        navItem.rightBarButtonItem = button
+        navBar.setItems([navItem], animated: false)
+
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
+    
+    
 
+    // Logout test function
+    func logoutTest(sender: UIButton) {
+        
+        do {
+            
+            try Auth.auth().signOut()
+            
+        } catch let logoutError {
+            
+            print(logoutError)
+            
+        }
+        
+        let loginVC = LoginViewController()
+        self.present(loginVC, animated: true, completion: nil)
+        
+    }
 
 }
 
