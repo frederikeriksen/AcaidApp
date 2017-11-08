@@ -35,56 +35,24 @@ class LoginViewController: UIViewController {
         logoImageView.center.x = self.view.center.x
         logoImageView.frame.origin.y = 0
         
-        // Setup email label, email textfield and put into stackview
-        emailLabel.text = "Email"
-        emailLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        emailLabel.textColor = UIColor.black
-        emailLabel.textAlignment = .center
-        emailLabel.frame.size.height = 50
-        emailLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        emailLabel.frame.origin.x = 0
-        
+        // Setup email textfield
         emailField.placeholder = "Email Address"
         emailField.borderStyle = UITextBorderStyle.roundedRect
-        emailField.frame.size.width = self.view.frame.size.width
+        emailField.frame.size.width = self.view.frame.size.width / 1.5
+        emailField.frame.size.height = 50
+        emailField.center.x = self.view.center.x
+        emailField.frame.origin.y = logoImageView.frame.size.height + 40
         emailField.autocapitalizationType = UITextAutocapitalizationType.none
         
-        emailStack.axis = UILayoutConstraintAxis.horizontal
-        emailStack.frame.origin.x = 0
-        emailStack.frame.origin.y = logoImageView.frame.size.height + 50
-        emailStack.frame.size.height = 50
-        emailStack.frame.size.width = self.view.frame.size.width - 5
-        emailStack.distribution = UIStackViewDistribution.fill
-        emailStack.alignment = UIStackViewAlignment.fill
-        emailStack.spacing = 0
-        emailStack.addArrangedSubview(emailLabel)
-        emailStack.addArrangedSubview(emailField)
-        
-        // Setup password label, password field and put into stackview
-        passLabel.text = "Password"
-        passLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        passLabel.textColor = UIColor.black
-        passLabel.textAlignment = .center
-        passLabel.frame.size.height = 50
-        passLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        passLabel.frame.origin.x = 0
-        
+        // Setup password textfield
         passField.placeholder = "Password"
         passField.borderStyle = UITextBorderStyle.roundedRect
-        passField.frame.size.width = self.view.frame.size.width
+        passField.frame.size.width = self.view.frame.size.width / 1.5
+        passField.frame.size.height = 50
+        passField.center.x = self.view.center.x
+        passField.frame.origin.y = emailField.frame.origin.y + 80
         passField.autocapitalizationType = UITextAutocapitalizationType.none
         passField.isSecureTextEntry = true
-        
-        passStack.axis = UILayoutConstraintAxis.horizontal
-        passStack.frame.origin.x = 0
-        passStack.frame.origin.y = emailStack.frame.origin.y + 70
-        passStack.frame.size.height = 50
-        passStack.frame.size.width = self.view.frame.size.width - 5
-        passStack.distribution = UIStackViewDistribution.fill
-        passStack.alignment = UIStackViewAlignment.fill
-        passStack.spacing = 0
-        passStack.addArrangedSubview(passLabel)
-        passStack.addArrangedSubview(passField)
         
         // Setup buttons
         loginButton.backgroundColor = UIColor.green
@@ -94,7 +62,7 @@ class LoginViewController: UIViewController {
         loginButton.frame.size.width = self.view.frame.size.width / 2
         loginButton.frame.size.height = 50
         loginButton.center.x = self.view.center.x
-        loginButton.frame.origin.y = passStack.frame.origin.y + 100
+        loginButton.frame.origin.y = passField.frame.origin.y + 100
         loginButton.isUserInteractionEnabled = true
         loginButton.addTarget(self, action: #selector(handleLogin(sender:)), for: .touchUpInside)
         
@@ -110,8 +78,8 @@ class LoginViewController: UIViewController {
         
         // Add every element as a subview
         self.view.addSubview(logoImageView)
-        self.view.addSubview(emailStack)
-        self.view.addSubview(passStack)
+        self.view.addSubview(emailField)
+        self.view.addSubview(passField)
         self.view.addSubview(loginButton)
         self.view.addSubview(regButton)
         

@@ -39,7 +39,7 @@ class PresentingViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        let delay = DispatchTime.now() + 3
+        let delay = DispatchTime.now() + 2
         DispatchQueue.main.asyncAfter(deadline: delay) {
         self.checkLoggedInUser()
         }

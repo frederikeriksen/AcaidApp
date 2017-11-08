@@ -15,6 +15,13 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.white
+        
+        
+        let navBar : UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
+        self.view.addSubview(navBar)
+        let navItem = UINavigationItem(title: "Chats")
+        navBar.setItems([navItem], animated: false)
+        
     }
 
     override func didReceiveMemoryWarning() {

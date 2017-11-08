@@ -73,12 +73,5 @@ class DBService {
     
     }
     
-    func getUserData() {
-    
-        
-    
-    }
-    
-    
 
 }
