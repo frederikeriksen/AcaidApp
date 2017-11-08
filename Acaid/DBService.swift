@@ -46,7 +46,7 @@ class DBService {
     
     }
     
-    func regUser(username: String, email: String, password: String) {
+    func regUser(firstname: String, lastname: String, email: String, password: String, university: String, studyline: String) {
     
         Auth.auth().createUser(withEmail: email, password: password, completion: {(user, error)in
         
@@ -60,9 +60,12 @@ class DBService {
             
                 self.firebaseRef.child("Users").child(user!.uid).setValue([
                     
-                        "username": username,
+                        "firstname": firstname,
+                        "lastname": lastname,
                         "email": email,
                         "password": password,
+                        "university": university,
+                        "studyline": studyline
                     
                     ])
                 print("Successfully registered!")

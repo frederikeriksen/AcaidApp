@@ -12,6 +12,7 @@
 		A9F64B267C9D1565D81395AC /* libPods-AcaidUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E4DE908D9CC628322D5F7F /* libPods-AcaidUITests.a */; };
 		EF1EE42C1F8D006400F45A98 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1EE42B1F8D006400F45A98 /* LoginViewController.swift */; };
 		EF1EE42F1F8D00A700F45A98 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1EE42E1F8D00A700F45A98 /* RegisterViewController.swift */; };
+		EFB250BE1FB351C6002A8E5D /* FirstRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB250BD1FB351C6002A8E5D /* FirstRegisterViewController.swift */; };
 		EFE861301FA3672200111FD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFE8612F1FA3672200111FD2 /* GoogleService-Info.plist */; };
 		EFE861321FA78BE100111FD2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE861311FA78BE100111FD2 /* TabBarController.swift */; };
 		EFE861361FAB2BC000111FD2 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE861351FAB2BC000111FD2 /* DBService.swift */; };
@@ -53,6 +54,7 @@
 		EB713C5A00F8B958BE8E8BFE /* Pods-AcaidUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcaidUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AcaidUITests/Pods-AcaidUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF1EE42B1F8D006400F45A98 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EF1EE42E1F8D00A700F45A98 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		EFB250BD1FB351C6002A8E5D /* FirstRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRegisterViewController.swift; sourceTree = "<group>"; };
 		EFE8612F1FA3672200111FD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EFE861311FA78BE100111FD2 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		EFE861351FAB2BC000111FD2 /* DBService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				EFE861311FA78BE100111FD2 /* TabBarController.swift */,
 				EFE8613C1FAC7A0F00111FD2 /* PresentingViewController.swift */,
 				EF1EE42E1F8D00A700F45A98 /* RegisterViewController.swift */,
+				EFB250BD1FB351C6002A8E5D /* FirstRegisterViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				EFFEE0731F8BBA0500D4294A /* AppDelegate.swift in Sources */,
 				EFE861381FAB59A100111FD2 /* ChatViewController.swift in Sources */,
 				EFE861321FA78BE100111FD2 /* TabBarController.swift in Sources */,
+				EFB250BE1FB351C6002A8E5D /* FirstRegisterViewController.swift in Sources */,
 				EF1EE42F1F8D00A700F45A98 /* RegisterViewController.swift in Sources */,
 				EFE8613D1FAC7A0F00111FD2 /* PresentingViewController.swift in Sources */,
 				EFE861361FAB2BC000111FD2 /* DBService.swift in Sources */,

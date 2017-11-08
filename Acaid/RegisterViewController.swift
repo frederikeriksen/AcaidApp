@@ -19,7 +19,12 @@ class RegisterViewController: UIViewController {
     let passField = UITextField()
     let repPassField = UITextField()
     let regButton = UIButton()
-    let backToLoginButton = UIButton()
+    let backButton = UIButton()
+    
+    var firstNameHolder = ""
+    var lastNameHolder = ""
+    var universityHolder = ""
+    var studyLineHolder = ""
     
     let firebaseRef = Database.database().reference()
     
@@ -29,30 +34,12 @@ class RegisterViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         
         // Setup imageview for logo image
-        logoImageView.backgroundColor = UIColor.green
+        logoImageView.backgroundColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
         logoImageView.image = logoImage
         logoImageView.frame.size.height = self.view.frame.size.height / 3
         logoImageView.frame.size.width = self.view.frame.size.width
         logoImageView.center.x = self.view.center.x
         logoImageView.frame.origin.y = 0
-        
-        // Setup firstname textfield
-        firstNameField.placeholder = "First name"
-        firstNameField.borderStyle = UITextBorderStyle.roundedRect
-        firstNameField.frame.size.width = self.view.frame.size.width / 1.5
-        firstNameField.frame.size.height = 40
-        firstNameField.center.x = self.view.center.x
-        firstNameField.frame.origin.y = logoImageView.frame.size.height + 20
-        firstNameField.autocapitalizationType = UITextAutocapitalizationType.none
-        
-        // Setup lastname textfield
-        lastNameField.placeholder = "Last name"
-        lastNameField.borderStyle = UITextBorderStyle.roundedRect
-        lastNameField.frame.size.width = self.view.frame.size.width / 1.5
-        lastNameField.frame.size.height = 40
-        lastNameField.center.x = self.view.center.x
-        lastNameField.frame.origin.y = firstNameField.frame.origin.y + 60
-        firstNameField.autocapitalizationType = UITextAutocapitalizationType.none
         
         // Setup email textfield
         emailField.placeholder = "Choose Email"
@@ -60,7 +47,7 @@ class RegisterViewController: UIViewController {
         emailField.frame.size.width = self.view.frame.size.width / 1.5
         emailField.frame.size.height = 40
         emailField.center.x = self.view.center.x
-        emailField.frame.origin.y = lastNameField.frame.origin.y + 60
+        emailField.frame.origin.y = logoImageView.frame.size.height + 30
         emailField.autocapitalizationType = UITextAutocapitalizationType.none
         
         // Setup password textfield
@@ -82,26 +69,26 @@ class RegisterViewController: UIViewController {
         repPassField.autocapitalizationType = UITextAutocapitalizationType.none
         
         // Setup buttons
-        regButton.backgroundColor = UIColor.green
-        regButton.setTitle("Register", for: .normal)
+        regButton.backgroundColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
+        regButton.setTitle("Done", for: .normal)
         regButton.setTitleColor(UIColor.black, for: .normal)
         regButton.layer.cornerRadius = 5
-        regButton.frame.size.height = 50
+        regButton.frame.size.height = 40
         regButton.frame.size.width = self.view.frame.size.width / 1.5
-        regButton.center.x = self.view.center.x
+        regButton.frame.origin.x = self.view.frame.maxX - regButton.frame.size.width - 5
         regButton.frame.origin.y = repPassField.frame.origin.y + 70
         regButton.isUserInteractionEnabled = true
         regButton.addTarget(self, action: #selector(handleRegistration(sender:)), for: .touchUpInside)
         
-        backToLoginButton.backgroundColor = UIColor.white
-        backToLoginButton.setTitle("Back to Login", for: .normal)
-        backToLoginButton.setTitleColor(UIColor.black, for: .normal)
-        backToLoginButton.frame.size.height = 50
-        backToLoginButton.frame.size.width = self.view.frame.size.width / 1.5
-        backToLoginButton.center.x = self.view.center.x
-        backToLoginButton.frame.origin.y = regButton.frame.origin.y + 50
-        backToLoginButton.isUserInteractionEnabled = true
-        backToLoginButton.addTarget(self, action: #selector(goBackToLogin(sender:)), for: .touchUpInside)
+        backButton.backgroundColor = UIColor.white
+        backButton.setTitle("Back", for: .normal)
+        backButton.setTitleColor(UIColor.black, for: .normal)
+        backButton.frame.size.height = 50
+        backButton.frame.size.width = self.view.frame.size.width / 1.5
+        backButton.frame.origin.x = self.view.frame.origin.x + 5
+        backButton.frame.origin.y = regButton.frame.origin.y
+        backButton.isUserInteractionEnabled = true
+        backButton.addTarget(self, action: #selector(goBackToLogin(sender:)), for: .touchUpInside)
         
         // Add all elements as subviews
         self.view.addSubview(logoImageView)
@@ -111,8 +98,9 @@ class RegisterViewController: UIViewController {
         self.view.addSubview(passField)
         self.view.addSubview(repPassField)
         self.view.addSubview(regButton)
-        self.view.addSubview(backToLoginButton)
+        self.view.addSubview(backButton)
         
+    
         
     }
 
@@ -123,15 +111,17 @@ class RegisterViewController: UIViewController {
     
     func handleRegistration(sender: UIButton) {
     
-        let usernameSelected = firstNameField.text! + " " + lastNameField.text!
+        let firstName = firstNameHolder
+        let lastName = lastNameHolder
+        let university = universityHolder
+        let studyLine = studyLineHolder
         let emailSelected = emailField.text!
         let passwordSelected = passField.text!
         let repeatedPassword = repPassField.text!
         
-        let usernameLength = usernameSelected.characters.count
         let passwordLength = passwordSelected.characters.count
         
-        if (usernameSelected.isEmpty || emailSelected.isEmpty || passwordSelected.isEmpty) {
+        if (emailSelected.isEmpty || passwordSelected.isEmpty) {
         
             displayError(message: "Please fill out all fields!")
         
@@ -143,14 +133,10 @@ class RegisterViewController: UIViewController {
         
             displayError(message: "The passwords must match! Try again!")
         
-        } else if (usernameLength < 5) {
-        
-            displayError(message: "Usernames are required to be at least 5 characters long!")
-        
         } else {
         
             // Initial validation has been done and we now register the user in the database
-            DBService().regUser(username: usernameSelected, email: emailSelected, password: passwordSelected)
+            DBService().regUser(firstname: firstName, lastname: lastName, email: emailSelected, password: passwordSelected, university: university, studyline: studyLine)
             
             let nextVC = TabBarController()
             self.present(nextVC, animated: true, completion: nil)

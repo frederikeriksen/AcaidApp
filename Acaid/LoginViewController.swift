@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         
         // Setup ImageView for logo + logo
-        logoImageView.backgroundColor = UIColor.green
+        logoImageView.backgroundColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
         logoImageView.image = logoImage
         logoImageView.frame.size.height = self.view.frame.size.height / 3
         logoImageView.frame.size.width = self.view.frame.size.width
@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         logoImageView.frame.origin.y = 0
         
         // Setup email textfield
-        emailField.placeholder = "Email Address"
+        emailField.placeholder = "Student Email"
         emailField.borderStyle = UITextBorderStyle.roundedRect
         emailField.frame.size.width = self.view.frame.size.width / 1.5
         emailField.frame.size.height = 50
@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
         passField.isSecureTextEntry = true
         
         // Setup buttons
-        loginButton.backgroundColor = UIColor.green
+        loginButton.backgroundColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
         loginButton.setTitle("Login", for: .normal)
         loginButton.setTitleColor(UIColor.black, for: .normal)
         loginButton.layer.cornerRadius = 5
@@ -111,7 +111,7 @@ class LoginViewController: UIViewController {
     
     func goToRegisterScreen(sender: UIButton) {
     
-        let nextVC = RegisterViewController()
+        let nextVC = FirstRegisterViewController()
         self.present(nextVC, animated: true, completion: nil)
     
     }
