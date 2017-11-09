@@ -128,8 +128,11 @@ class FirstRegisterViewController: UIViewController {
             nextVC.lastNameHolder = lastNameTyped
             nextVC.universityHolder = universityChosen
             nextVC.studyLineHolder = studyLineChosen
-        
+            
             self.present(nextVC, animated: true, completion: nil)
+            var window: UIWindow?
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window!.rootViewController = nextVC
             
         }
     

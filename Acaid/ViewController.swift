@@ -27,6 +27,17 @@ class ViewController: UIViewController {
         navItem.rightBarButtonItem = button
         navBar.setItems([navItem], animated: false)
 
+        let segItems = ["My Sessions", "Available", "Requests"]
+        let toggle = UISegmentedControl(items: segItems)
+        toggle.selectedSegmentIndex = 0
+        let frame = UIScreen.main.bounds
+        toggle.frame = CGRect(x: frame.minX - 10, y: frame.minY + navBar.frame.size.height + 10, width: frame.width - 20, height: 30)
+        toggle.layer.cornerRadius = 25
+        toggle.backgroundColor = UIColor.white
+        toggle.tintColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
+        toggle.center.x = self.view.center.x
+        
+        self.view.addSubview(toggle)
         
     }
 

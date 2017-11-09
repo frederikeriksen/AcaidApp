@@ -70,21 +70,21 @@ class RegisterViewController: UIViewController {
         
         // Setup buttons
         regButton.backgroundColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
-        regButton.setTitle("Done", for: .normal)
+        regButton.setTitle("Register", for: .normal)
         regButton.setTitleColor(UIColor.black, for: .normal)
         regButton.layer.cornerRadius = 5
         regButton.frame.size.height = 40
-        regButton.frame.size.width = self.view.frame.size.width / 1.5
+        regButton.frame.size.width = self.view.frame.size.width / 4
         regButton.frame.origin.x = self.view.frame.maxX - regButton.frame.size.width - 5
         regButton.frame.origin.y = repPassField.frame.origin.y + 70
         regButton.isUserInteractionEnabled = true
         regButton.addTarget(self, action: #selector(handleRegistration(sender:)), for: .touchUpInside)
         
         backButton.backgroundColor = UIColor.white
-        backButton.setTitle("Back", for: .normal)
-        backButton.setTitleColor(UIColor.black, for: .normal)
+        backButton.setTitle("< Back", for: .normal)
+        backButton.setTitleColor(UIColor(red: 0, green: 136, blue: 234, alpha: 1.0), for: .normal)
         backButton.frame.size.height = 50
-        backButton.frame.size.width = self.view.frame.size.width / 1.5
+        backButton.frame.size.width = self.view.frame.size.width / 5
         backButton.frame.origin.x = self.view.frame.origin.x + 5
         backButton.frame.origin.y = regButton.frame.origin.y
         backButton.isUserInteractionEnabled = true
@@ -140,6 +140,8 @@ class RegisterViewController: UIViewController {
             
             let nextVC = TabBarController()
             self.present(nextVC, animated: true, completion: nil)
+            
+            
             
         }
     

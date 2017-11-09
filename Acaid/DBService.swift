@@ -34,9 +34,6 @@ class DBService {
                 self.firebaseRef.child(userID!).observeSingleEvent(of: .value, with: {(snapshot) in
                 
                     let value = snapshot.value as? NSDictionary
-                    let username = value?["username"] as? String ?? ""
-                    let email = value?["email"] as? String ?? ""
-                    let password = value?["password"] as? String ?? ""
                 
                 })
             
