@@ -14,7 +14,8 @@ class PersonalProfileViewController: UIViewController {
     let profileImageView = UIImageView()
     let profileImage = UIImage()
     let name = UILabel()
-    let initiateChatButton = UIButton()
+    let university = UILabel()
+    let studyLine = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,43 +25,41 @@ class PersonalProfileViewController: UIViewController {
         let navBar : UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
         let navItem = UINavigationItem(title: "Profile")
         navBar.setItems([navItem], animated: false)
-        
-        //Setup imageview and image for profile picture
-        profileImageView.backgroundColor = UIColor.green
-        profileImageView.image = profileImage
-        profileImageView.frame.size.height = self.view.frame.size.height / 3
-        profileImageView.frame.size.width = self.view.frame.size.width
-        profileImageView.center.x = self.view.center.x
-        profileImageView.frame.origin.y = self.view.frame.origin.y + navBar.frame.size.height
-        
-        // Setup name label
-        name.backgroundColor = UIColor.green
-        name.text = "Firstname Lastname" /* Change this to take the username of that profile's owner */
-        name.textAlignment = .center
-        name.font = UIFont.boldSystemFont(ofSize: 16)
-        name.textColor = UIColor.white
-        name.frame.size.height = 40
-        name.frame.size.width = self.view.frame.size.width / 2
-        name.center.x = self.view.center.x
-        name.frame.origin.y = (profileImageView.frame.size.height + navBar.frame.size.height) - name.frame.size.height - 1
-        
-        // Setup button for starting a chat with the user
-        initiateChatButton.backgroundColor = UIColor.orange
-        initiateChatButton.setTitle("+", for: .normal)
-        initiateChatButton.setTitleColor(UIColor.white, for: .normal)
-        initiateChatButton.frame.size.height = 50
-        initiateChatButton.frame.size.width = 50
-        initiateChatButton.frame.origin.x = self.view.frame.maxX - 60
-        initiateChatButton.frame.origin.y = profileImageView.frame.size.height + navBar.frame.size.height
-        initiateChatButton.layer.cornerRadius = 0.5 * initiateChatButton.frame.size.width
-        initiateChatButton.clipsToBounds = true
-        
-        
-        // Add all elements to the superview
         self.view.addSubview(navBar)
+        
+        profileImageView.frame.size.height = self.view.frame.size.height / 3
+        profileImageView.frame.size.width = self.view.frame.size.width / 1.5
+        profileImageView.frame.origin.y = navBar.frame.maxY + 20
+        profileImageView.center.x = self.view.center.x
+        profileImageView.backgroundColor = UIColor.gray
+        profileImageView.layer.cornerRadius = 0.5 * profileImageView.frame.size.width
         self.view.addSubview(profileImageView)
+        
+        name.frame.size.height = 50
+        name.frame.size.width = self.view.frame.size.width
+        name.center.x = self.view.center.x
+        name.frame.origin.y = profileImageView.frame.maxY + 10
+        name.textAlignment = .center
+        name.font = UIFont.boldSystemFont(ofSize: 20)
         self.view.addSubview(name)
-        self.view.addSubview(initiateChatButton)
+        
+        university.frame.size.height = 50
+        university.frame.size.width = self.view.frame.size.width
+        university.center.x = self.view.center.x
+        university.frame.origin.y = name.frame.maxY + 20
+        university.textAlignment = .center
+        university.font = UIFont.boldSystemFont(ofSize: 18)
+        self.view.addSubview(university)
+        
+        studyLine.frame.size.height = 40
+        studyLine.frame.size.width = self.view.frame.size.width
+        studyLine.center.x = self.view.center.x
+        studyLine.frame.origin.y = university.frame.maxY
+        studyLine.textAlignment = .center
+        studyLine.font = UIFont.italicSystemFont(ofSize: 14)
+        self.view.addSubview(studyLine)
+        
+        configureProfile()
         
     }
 
@@ -69,6 +68,17 @@ class PersonalProfileViewController: UIViewController {
         
     }
     
-    
+    func configureProfile() {
+        let userUID = Auth.auth().currentUser?.uid
+        
+        let queryRef = Database.database().reference().child("Users").child(userUID!)
+        
+        queryRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            let thisUser = User(snapshot: snapshot)
+            self.name.text = thisUser?.firstName
+            
+        })
+        
+    }
 
 }

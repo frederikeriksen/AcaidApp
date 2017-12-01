@@ -27,8 +27,6 @@ class TabBarController: UITabBarController {
         
         viewControllers = tabBarList
         
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

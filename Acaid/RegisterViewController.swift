@@ -136,7 +136,7 @@ class RegisterViewController: UIViewController {
         } else {
         
             // Initial validation has been done and we now register the user in the database
-            DBService().regUser(firstname: firstName, lastname: lastName, email: emailSelected, password: passwordSelected, university: university, studyline: studyLine)
+            DBService().regUser(firstname: firstName, lastname: lastName, email: emailSelected, password: passwordSelected, university: university, studyline: studyLine, isTutor: false)
             
             let nextVC = TabBarController()
             self.present(nextVC, animated: true, completion: nil)

@@ -43,7 +43,7 @@ class DBService {
     
     }
     
-    func regUser(firstname: String, lastname: String, email: String, password: String, university: String, studyline: String) {
+    func regUser(firstname: String, lastname: String, email: String, password: String, university: String, studyline: String, isTutor: Bool) {
     
         Auth.auth().createUser(withEmail: email, password: password, completion: {(user, error)in
         
@@ -62,7 +62,8 @@ class DBService {
                         "email": email,
                         "password": password,
                         "university": university,
-                        "studyline": studyline
+                        "studyline": studyline,
+                        "isTutor": false
                     
                     ])
                 print("Successfully registered!")
@@ -71,6 +72,17 @@ class DBService {
         
         })
     
+    }
+    
+    func createSession(title: String, description: String, type: String, initiator: String) {
+        self.firebaseRef.child("Sessions").childByAutoId().setValue([
+                "title": title,
+                "description": description,
+                "type": type,
+                "initiator": initiator
+              
+            ])
+        print("Session created!")
     }
     
 
