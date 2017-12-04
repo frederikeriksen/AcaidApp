@@ -120,12 +120,11 @@ class CreateBookViewController: UIViewController {
         } else {
         
             if(toggle.selectedSegmentIndex == 0) {
-                DBService().bookCreation(title: titleOfBook!, description: descOfBook!, course: courseOfBook!, semester: semesterOfBook!, seller: (Auth.auth().currentUser?.uid)!, price: priceOfBook! + "DKK")
+                DBService().bookCreation(title: titleOfBook!, description: descOfBook!, course: courseOfBook!, semester: semesterOfBook!, initiator: (Auth.auth().currentUser?.uid)!, type: "sale", price: priceOfBook! + "DKK")
                 print("Book uploaded")
                 self.present(TabBarController(), animated: true, completion: nil)
             } else if(toggle.selectedSegmentIndex == 1) {
-                DBService().bookReq(title: titleOfBook!, initiator: (Auth.auth().currentUser?.uid)!, description: descOfBook!, course: courseOfBook!, semester: semesterOfBook!, price: priceOfBook! + "DKK")
-                print("Book request uploaded")
+                DBService().bookCreation(title: titleOfBook!, description: descOfBook!, course: courseOfBook!, semester: semesterOfBook!, initiator: (Auth.auth().currentUser?.uid)!, type: "request", price: priceOfBook! + "DKK")
                 self.present(TabBarController(), animated: true, completion: nil)
             }
         }

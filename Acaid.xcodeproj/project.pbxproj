@@ -19,6 +19,7 @@
 		EF58DEA61FD575AE00947DD6 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF58DEA51FD575AE00947DD6 /* CalendarViewController.swift */; };
 		EF58DEA81FD586B000947DD6 /* CreateBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF58DEA71FD586B000947DD6 /* CreateBookViewController.swift */; };
 		EF58DEAA1FD5962900947DD6 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF58DEA91FD5962900947DD6 /* Book.swift */; };
+		EF58DEAD1FD59DA100947DD6 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF58DEAC1FD59DA100947DD6 /* BookCell.swift */; };
 		EF661B2B1FCC590900FE4D19 /* CreateSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF661B2A1FCC590900FE4D19 /* CreateSessionViewController.swift */; };
 		EFA184561FD027D7006525D9 /* Tutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA184551FD027D7006525D9 /* Tutor.swift */; };
 		EFB250BE1FB351C6002A8E5D /* FirstRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB250BD1FB351C6002A8E5D /* FirstRegisterViewController.swift */; };
@@ -70,6 +71,7 @@
 		EF58DEA51FD575AE00947DD6 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		EF58DEA71FD586B000947DD6 /* CreateBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBookViewController.swift; sourceTree = "<group>"; };
 		EF58DEA91FD5962900947DD6 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		EF58DEAC1FD59DA100947DD6 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		EF661B2A1FCC590900FE4D19 /* CreateSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSessionViewController.swift; sourceTree = "<group>"; };
 		EFA184551FD027D7006525D9 /* Tutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutor.swift; sourceTree = "<group>"; };
 		EFB250BD1FB351C6002A8E5D /* FirstRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRegisterViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		EF58DEAB1FD5984E00947DD6 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				EF58DEAC1FD59DA100947DD6 /* BookCell.swift */,
 				EF0F55F21FCD94360070260D /* SessionCell.swift */,
 			);
 			name = Cells;
@@ -543,6 +546,7 @@
 				EF1EE42C1F8D006400F45A98 /* LoginViewController.swift in Sources */,
 				EF58DEA61FD575AE00947DD6 /* CalendarViewController.swift in Sources */,
 				EFFEE0751F8BBA0500D4294A /* ViewController.swift in Sources */,
+				EF58DEAD1FD59DA100947DD6 /* BookCell.swift in Sources */,
 				EFE8613A1FAB59ED00111FD2 /* PersonalProfileViewController.swift in Sources */,
 				EFFEE0731F8BBA0500D4294A /* AppDelegate.swift in Sources */,
 				EFE861381FAB59A100111FD2 /* ChatViewController.swift in Sources */,

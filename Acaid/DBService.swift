@@ -89,29 +89,18 @@ class DBService {
     }
     
     // Function for putting a book for sale and store it in Firebase
-    func bookCreation(title: String, description: String, course: String, semester: String, seller: String, price: String) {
+    func bookCreation(title: String, description: String, course: String, semester: String, initiator: String, type: String, price: String) {
         self.firebaseRef.child("Books").childByAutoId().setValue([
             "title": title,
             "description": description,
             "course": course,
             "semester": semester,
-            "seller": seller,
+            "initiator": initiator,
+            "type": type,
             "price": price
             ])
         print("Book published for sale")
     }
     
-    // Function for requesting a book and storing that request in Firebase
-    func bookReq(title: String, initiator: String, description: String, course: String, semester: String, price: String) {
-        self.firebaseRef.child("Bookrequests").childByAutoId().setValue([
-            "title": title,
-            "initiator": initiator,
-            "description": description,
-            "course": course,
-            "semester": semester,
-            "price": price
-            
-            ])
-    }
 
 }

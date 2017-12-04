@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
-class BookMarketViewController: UIViewController {
+class BookMarketViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var toggle = UISegmentedControl()
     let postBook = UIButton()
+    var booksArray = [Book]()
+    var booksTable = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +52,25 @@ class BookMarketViewController: UIViewController {
         postBook.addTarget(self, action: #selector(postBook(sender:)), for: .touchUpInside)
         self.view.addSubview(postBook)
         
+        // Setup tableview in which books will be loaded
+        self.booksTable.delegate = self
+        self.booksTable.dataSource = self
+        booksTable.register(BookCell.self, forCellReuseIdentifier: "bookCell")
+        booksTable.frame.origin.x = self.view.frame.origin.x + 10
+        booksTable.frame.origin.y = toggle.frame.maxY + 10
+        booksTable.frame.size.height = 100
+        booksTable.frame.size.width = self.view.frame.size.width - 20
+        self.view.addSubview(booksTable)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        retrieveBooks()
     }
     
     func postBook(sender: UIButton) {
@@ -66,10 +83,53 @@ class BookMarketViewController: UIViewController {
         
         if(toggle.selectedSegmentIndex == 0) {
             // Retrieve books for sale
+            Database.database().reference().child("Books").queryOrdered(byChild: "type").queryEqual(toValue: "sale").observe(.value, with: {(snapshot)in
+                var results = [Book]()
+                for book in snapshot.children {
+                    results.append(Book(snapshot: book as! DataSnapshot))
+                }
+                self.booksArray = results.sorted(by: {(b1, b2) -> Bool in
+                    b1.title > b2.title
+                })
+                self.booksTable.reloadData()
+                print(self.booksArray)
+                
+            }) {(error) in
+                print(error.localizedDescription)
+            }
         }else if(toggle.selectedSegmentIndex == 1) {
             // Retrieve buying requests
+            Database.database().reference().child("Books").queryOrdered(byChild: "type").queryEqual(toValue: "request").observe(.value, with: {(snapshot) in
+                var results = [Book]()
+                for book in snapshot.children {
+                    results.append(Book(snapshot: book as! DataSnapshot))
+                }
+                self.booksArray = results.sorted(by: {(b1, b2) -> Bool in
+                    b1.title > b2.title
+                })
+                self.booksTable.reloadData()
+                print(self.booksArray)
+            }) {(error) in
+                print(error.localizedDescription)
+            }
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return booksArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = booksTable.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath) as! BookCell
+        
+        cell.configureCell(book: booksArray[indexPath.row])
+        booksTable.frame.size.height = CGFloat(booksArray.count) * CGFloat(cell.frame.size.height)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Did select this row")
     }
  
 
