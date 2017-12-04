@@ -23,7 +23,10 @@ class TabBarController: UITabBarController {
         let thirdVC = PersonalProfileViewController()
         thirdVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
         
-        let tabBarList = [firstVC, secondVC, thirdVC]
+        let fourthVC = BookMarketViewController()
+        fourthVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 3)
+        
+        let tabBarList = [firstVC, secondVC, thirdVC, fourthVC]
         
         viewControllers = tabBarList
         

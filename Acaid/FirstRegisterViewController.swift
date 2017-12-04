@@ -25,7 +25,7 @@ class FirstRegisterViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
 
         // Setup logo imageview and image
-        logoImageView.backgroundColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
+        logoImageView.backgroundColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         logoImageView.image = logoImage
         logoImageView.frame.size.height = self.view.frame.size.height / 3
         logoImageView.frame.size.width = self.view.frame.size.width
@@ -67,7 +67,7 @@ class FirstRegisterViewController: UIViewController {
         // Setup buttons
         nextButton.backgroundColor = UIColor.white
         nextButton.setTitle("Next >", for: .normal)
-        nextButton.setTitleColor(UIColor(red: 0, green: 136, blue: 234, alpha: 1.0), for: .normal)
+        nextButton.setTitleColor(UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0), for: .normal)
         nextButton.layer.cornerRadius = 5
         nextButton.frame.size.height = 40
         nextButton.frame.size.width = self.view.frame.size.width / 5
@@ -104,6 +104,7 @@ class FirstRegisterViewController: UIViewController {
     
     func cancelReg(sender: UIButton) {
     
+        // Cancel registration and go back to login screen
         let backToLoginVC = LoginViewController()
         self.present(backToLoginVC, animated: true, completion: nil)
     
@@ -111,6 +112,7 @@ class FirstRegisterViewController: UIViewController {
     
     func goToNext(sender: UIButton) {
     
+        // Store user input in variables
         let firstNameTyped = firstNameField.text!
         let lastNameTyped = lastNameField.text!
         let universityChosen = universityField.text!
@@ -122,6 +124,7 @@ class FirstRegisterViewController: UIViewController {
         
         } else {
         
+            // Present next register view and pass user input to placeholders in next viewcontroller
             let nextVC = RegisterViewController()
             
             nextVC.firstNameHolder = firstNameTyped

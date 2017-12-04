@@ -16,11 +16,11 @@ class PresentingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
+        self.view.backgroundColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         
         loadingText.text = "Loading..."
         loadingText.font = UIFont.boldSystemFont(ofSize: 20)
-        loadingText.backgroundColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
+        loadingText.backgroundColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         loadingText.textColor = UIColor.white
         loadingText.textAlignment = .center
         loadingText.frame.size.height = 100

@@ -18,14 +18,6 @@ class Session {
     var creator: String
 
     init(snapshot: DataSnapshot) {
-    
-       /* guard let dict = snapshot.value as? [String: Any],
-        let title = dict["title"] as? String,
-        let desc = dict["description"] as? String,
-        let type = dict["type"] as? String,
-        let creator = dict["initiator"] as? String
-            else {
-                return nil */
         let dict = snapshot.value as? NSDictionary
         
         title = dict?["title"] as? String ?? ""
@@ -34,12 +26,6 @@ class Session {
         creator = dict?["initiator"] as? String ?? ""
         
         }
-        
-     /*   self.key = snapshot.key
-        self.title = title
-        self.desc = desc
-        self.type = type
-        self.creator = creator */
         
     }
 

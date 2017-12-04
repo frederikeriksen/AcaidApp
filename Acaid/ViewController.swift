@@ -23,6 +23,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.backgroundColor = UIColor.white
         
         let navBar : UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
+        navBar.backgroundColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         self.view.addSubview(navBar)
         let navItem = UINavigationItem(title: "Username")
         let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(logoutTest(sender:)))
@@ -39,7 +40,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         toggle.frame = CGRect(x: frame.minX - 10, y: frame.minY + navBar.frame.size.height + 10, width: frame.width - 20, height: 30)
         toggle.layer.cornerRadius = 25
         toggle.backgroundColor = UIColor.white
-        toggle.tintColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
+        toggle.tintColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         toggle.center.x = self.view.center.x
         toggle.addTarget(self, action: #selector(retrieveSessions), for: .allEvents)
         
@@ -64,9 +65,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         sesTable.register(SessionCell.self, forCellReuseIdentifier: "sessionCell")
         sesTable.frame.origin.y = toggle.frame.maxY + 50
-        sesTable.frame.origin.x = self.view.frame.origin.x
+        sesTable.frame.origin.x = self.view.frame.origin.x + 10
         sesTable.frame.size.height = self.view.frame.size.height
-        sesTable.frame.size.width = self.view.frame.size.width
+        sesTable.frame.size.width = self.view.frame.size.width - 20
         self.view.addSubview(sesTable)
         
     }

@@ -13,12 +13,14 @@ class DBService {
 
     private var firebaseRef : DatabaseReference
     
+    // Initialize firebase with reference
     init() {
     
         self.firebaseRef = Database.database().reference()
     
     }
     
+    // Function for logging in a user
     func loginUser(email: String, password: String) {
     
         Auth.auth().signIn(withEmail: email, password: password, completion: {(user, error) in
@@ -33,7 +35,7 @@ class DBService {
                 let userID = Auth.auth().currentUser?.uid
                 self.firebaseRef.child(userID!).observeSingleEvent(of: .value, with: {(snapshot) in
                 
-                    let value = snapshot.value as? NSDictionary
+                    // Init user
                 
                 })
             
@@ -43,7 +45,8 @@ class DBService {
     
     }
     
-    func regUser(firstname: String, lastname: String, email: String, password: String, university: String, studyline: String, isTutor: Bool) {
+    // Function for registering a user in the database
+    func regUser(firstname: String, lastname: String, email: String, password: String, university: String, studyline: String) {
     
         Auth.auth().createUser(withEmail: email, password: password, completion: {(user, error)in
         
@@ -63,7 +66,6 @@ class DBService {
                         "password": password,
                         "university": university,
                         "studyline": studyline,
-                        "isTutor": false
                     
                     ])
                 print("Successfully registered!")
@@ -74,6 +76,7 @@ class DBService {
     
     }
     
+    // Function for creating a tutoring session or tutoring request
     func createSession(title: String, description: String, type: String, initiator: String) {
         self.firebaseRef.child("Sessions").childByAutoId().setValue([
                 "title": title,
@@ -85,5 +88,30 @@ class DBService {
         print("Session created!")
     }
     
+    // Function for putting a book for sale and store it in Firebase
+    func bookCreation(title: String, description: String, course: String, semester: String, seller: String, price: String) {
+        self.firebaseRef.child("Books").childByAutoId().setValue([
+            "title": title,
+            "description": description,
+            "course": course,
+            "semester": semester,
+            "seller": seller,
+            "price": price
+            ])
+        print("Book published for sale")
+    }
+    
+    // Function for requesting a book and storing that request in Firebase
+    func bookReq(title: String, initiator: String, description: String, course: String, semester: String, price: String) {
+        self.firebaseRef.child("Bookrequests").childByAutoId().setValue([
+            "title": title,
+            "initiator": initiator,
+            "description": description,
+            "course": course,
+            "semester": semester,
+            "price": price
+            
+            ])
+    }
 
 }

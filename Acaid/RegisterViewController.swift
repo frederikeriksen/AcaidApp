@@ -34,7 +34,7 @@ class RegisterViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         
         // Setup imageview for logo image
-        logoImageView.backgroundColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
+        logoImageView.backgroundColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         logoImageView.image = logoImage
         logoImageView.frame.size.height = self.view.frame.size.height / 3
         logoImageView.frame.size.width = self.view.frame.size.width
@@ -69,7 +69,7 @@ class RegisterViewController: UIViewController {
         repPassField.autocapitalizationType = UITextAutocapitalizationType.none
         
         // Setup buttons
-        regButton.backgroundColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
+        regButton.backgroundColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         regButton.setTitle("Register", for: .normal)
         regButton.setTitleColor(UIColor.black, for: .normal)
         regButton.layer.cornerRadius = 5
@@ -82,7 +82,7 @@ class RegisterViewController: UIViewController {
         
         backButton.backgroundColor = UIColor.white
         backButton.setTitle("< Back", for: .normal)
-        backButton.setTitleColor(UIColor(red: 0, green: 136, blue: 234, alpha: 1.0), for: .normal)
+        backButton.setTitleColor(UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0), for: .normal)
         backButton.frame.size.height = 50
         backButton.frame.size.width = self.view.frame.size.width / 5
         backButton.frame.origin.x = self.view.frame.origin.x + 5
@@ -136,7 +136,7 @@ class RegisterViewController: UIViewController {
         } else {
         
             // Initial validation has been done and we now register the user in the database
-            DBService().regUser(firstname: firstName, lastname: lastName, email: emailSelected, password: passwordSelected, university: university, studyline: studyLine, isTutor: false)
+            DBService().regUser(firstname: firstName, lastname: lastName, email: emailSelected, password: passwordSelected, university: university, studyline: studyLine)
             
             let nextVC = TabBarController()
             self.present(nextVC, animated: true, completion: nil)
@@ -150,6 +150,7 @@ class RegisterViewController: UIViewController {
     
     func goBackToLogin(sender: UIButton) {
     
+        // User goes back and we present them the login view
         let loginVC = LoginViewController()
         self.present(loginVC, animated: true, completion: nil)
     

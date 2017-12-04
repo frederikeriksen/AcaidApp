@@ -35,7 +35,7 @@ class CreateSessionViewController: UIViewController {
         toggle.frame = CGRect(x: frame.minX - 10, y: frame.minY + 10 + navBar.frame.size.height, width: frame.width - 20, height: 30)
         toggle.layer.cornerRadius = 25
         toggle.backgroundColor = UIColor.white
-        toggle.tintColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
+        toggle.tintColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         toggle.center.x = self.view.center.x
         self.view.addSubview(toggle)
 
@@ -59,7 +59,7 @@ class CreateSessionViewController: UIViewController {
         
         submit.setTitle("Submit session", for: .normal)
         submit.setTitleColor(UIColor.black, for: .normal)
-        submit.backgroundColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
+        submit.backgroundColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         submit.frame.size.height = 50
         submit.frame.size.width = self.view.frame.size.width / 2
         submit.center.x = self.view.center.x
@@ -97,7 +97,8 @@ class CreateSessionViewController: UIViewController {
     }
     
     func exitCreation(sender: UIButton) {
-        let previousVC = ViewController()
+        // User cancels creation of session and we present the previous screen
+        let previousVC = TabBarController()
         self.present(previousVC, animated: true, completion: nil)
     }
     

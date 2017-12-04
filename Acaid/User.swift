@@ -17,28 +17,17 @@ class User {
     var email: String
     var university: String
     var studyLine: String
-    var profilePic: URL?
+    //var profilePic: URL?
     
-    init?(snapshot: DataSnapshot) {
+    init(snapshot: DataSnapshot) {
     
-        guard let dict = snapshot.value as? [String: Any],
-        let firstName = dict["firstname"] as? String,
-        let lastName = dict["lastname"] as? String,
-        let email = dict["email"] as? String,
-        let university = dict["university"] as? String,
-        let studyLine = dict["studyLine"] as? String,
-        let profilePic = dict["profilePic"] as? String?
-            else{
-                return nil
-        }
-        
-        self.key = snapshot.key
-        self.firstName = firstName
-        self.lastName = lastName
-        self.email = email
-        self.university = university
-        self.studyLine = studyLine
-        self.profilePic = URL(string: (profilePic)!)
+        let dict = snapshot.value as? NSDictionary
+        key = snapshot.key
+        firstName = dict?["firstname"] as? String ?? ""
+        lastName = dict?["lastname"] as? String ?? ""
+        email = dict?["email"] as? String ?? ""
+        university = dict?["university"] as? String ?? ""
+        studyLine = dict?["studyline"] as? String ?? ""
     
     }
     

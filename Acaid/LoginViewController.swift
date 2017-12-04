@@ -13,12 +13,8 @@ class LoginViewController: UIViewController {
     
     let logoImageView = UIImageView()
     let logoImage = UIImage()
-    let emailLabel = UILabel()
     let emailField = UITextField()
-    let emailStack = UIStackView()
-    let passLabel = UILabel()
     let passField = UITextField()
-    let passStack = UIStackView()
     let loginButton = UIButton()
     let regButton = UIButton()
 
@@ -28,7 +24,7 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         
         // Setup ImageView for logo + logo
-        logoImageView.backgroundColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
+        logoImageView.backgroundColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         logoImageView.image = logoImage
         logoImageView.frame.size.height = self.view.frame.size.height / 3
         logoImageView.frame.size.width = self.view.frame.size.width
@@ -55,7 +51,7 @@ class LoginViewController: UIViewController {
         passField.isSecureTextEntry = true
         
         // Setup buttons
-        loginButton.backgroundColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
+        loginButton.backgroundColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         loginButton.setTitle("Login", for: .normal)
         loginButton.setTitleColor(UIColor.black, for: .normal)
         loginButton.layer.cornerRadius = 5
@@ -101,6 +97,7 @@ class LoginViewController: UIViewController {
         
         } else {
         
+            // Here we call firebase's login function and presents the main view controller of the app (tabbarcontroller)
             DBService().loginUser(email: emailTyped, password: passwordTyped)
             let tabVC = TabBarController()
             self.present(tabVC, animated: true, completion: nil)
@@ -111,6 +108,7 @@ class LoginViewController: UIViewController {
     
     func goToRegisterScreen(sender: UIButton) {
     
+        // User presses register button and we present them the register screen
         let nextVC = FirstRegisterViewController()
         self.present(nextVC, animated: true, completion: nil)
     

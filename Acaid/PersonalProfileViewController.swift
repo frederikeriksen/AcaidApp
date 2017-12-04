@@ -75,8 +75,9 @@ class PersonalProfileViewController: UIViewController {
         
         queryRef.observeSingleEvent(of: .value, with: {(snapshot) in
             let thisUser = User(snapshot: snapshot)
-            self.name.text = thisUser?.firstName
-            
+            self.name.text = thisUser.firstName + " " + thisUser.lastName
+            self.university.text = thisUser.university
+            self.studyLine.text = thisUser.studyLine
         })
         
     }

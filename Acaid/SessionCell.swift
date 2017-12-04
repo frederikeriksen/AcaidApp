@@ -20,8 +20,9 @@ class SessionCell: UITableViewCell {
         
         self.backgroundColor = UIColor.white
         
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
@@ -39,7 +40,7 @@ class SessionCell: UITableViewCell {
     func configureCell(session: Session) {
     
         self.contentView.frame = CGRect(x: self.contentView.frame.origin.x, y: self.contentView.frame.origin.y, width: self.contentView.frame.size.width, height: self.contentView.frame.size.height)
-        
+
         self.picView.frame.size.height = self.contentView.frame.size.height - 2
         self.picView.frame.size.width = self.contentView.frame.size.width / 8
         self.picView.center.y = self.contentView.center.y
