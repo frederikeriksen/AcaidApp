@@ -68,6 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         sesTable.frame.origin.x = self.view.frame.origin.x + 10
         sesTable.frame.size.height = self.view.frame.size.height
         sesTable.frame.size.width = self.view.frame.size.width - 20
+        sesTable.rowHeight = 100
         self.view.addSubview(sesTable)
         
     }

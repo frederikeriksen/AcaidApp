@@ -15,6 +15,11 @@
 		EF0F55F31FCD94360070260D /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0F55F21FCD94360070260D /* SessionCell.swift */; };
 		EF1EE42C1F8D006400F45A98 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1EE42B1F8D006400F45A98 /* LoginViewController.swift */; };
 		EF1EE42F1F8D00A700F45A98 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1EE42E1F8D00A700F45A98 /* RegisterViewController.swift */; };
+		EF40E5041FD6CE0800F31006 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF40E5031FD6CE0800F31006 /* Chat.swift */; };
+		EF40E5061FD6D0AF00F31006 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF40E5051FD6D0AF00F31006 /* Message.swift */; };
+		EF40E5081FD6D1FA00F31006 /* CreateChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF40E5071FD6D1FA00F31006 /* CreateChatViewController.swift */; };
+		EF40E50A1FD6D36B00F31006 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF40E5091FD6D36B00F31006 /* UserCell.swift */; };
+		EF40E50C1FD6DB6E00F31006 /* ActiveChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF40E50B1FD6DB6D00F31006 /* ActiveChatViewController.swift */; };
 		EF58DEA41FD5759000947DD6 /* BookMarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF58DEA31FD5759000947DD6 /* BookMarketViewController.swift */; };
 		EF58DEA61FD575AE00947DD6 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF58DEA51FD575AE00947DD6 /* CalendarViewController.swift */; };
 		EF58DEA81FD586B000947DD6 /* CreateBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF58DEA71FD586B000947DD6 /* CreateBookViewController.swift */; };
@@ -67,6 +72,11 @@
 		EF0F55F21FCD94360070260D /* SessionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionCell.swift; sourceTree = "<group>"; };
 		EF1EE42B1F8D006400F45A98 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EF1EE42E1F8D00A700F45A98 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		EF40E5031FD6CE0800F31006 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		EF40E5051FD6D0AF00F31006 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		EF40E5071FD6D1FA00F31006 /* CreateChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatViewController.swift; sourceTree = "<group>"; };
+		EF40E5091FD6D36B00F31006 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		EF40E50B1FD6DB6D00F31006 /* ActiveChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveChatViewController.swift; sourceTree = "<group>"; };
 		EF58DEA31FD5759000947DD6 /* BookMarketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMarketViewController.swift; sourceTree = "<group>"; };
 		EF58DEA51FD575AE00947DD6 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		EF58DEA71FD586B000947DD6 /* CreateBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBookViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +166,8 @@
 				EF58DEA71FD586B000947DD6 /* CreateBookViewController.swift */,
 				EF58DEA51FD575AE00947DD6 /* CalendarViewController.swift */,
 				EFE861371FAB59A100111FD2 /* ChatViewController.swift */,
+				EF40E5071FD6D1FA00F31006 /* CreateChatViewController.swift */,
+				EF40E50B1FD6DB6D00F31006 /* ActiveChatViewController.swift */,
 				EFFEE0741F8BBA0500D4294A /* ViewController.swift */,
 				EF661B2A1FCC590900FE4D19 /* CreateSessionViewController.swift */,
 				EFE861391FAB59ED00111FD2 /* PersonalProfileViewController.swift */,
@@ -170,11 +182,13 @@
 		EF1EE4321F8D00FD00F45A98 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				EF40E5031FD6CE0800F31006 /* Chat.swift */,
+				EF40E5051FD6D0AF00F31006 /* Message.swift */,
 				EFA184551FD027D7006525D9 /* Tutor.swift */,
 				EF0F55EE1FCC6B5B0070260D /* User.swift */,
 				EF0F55F01FCC6B700070260D /* Session.swift */,
-				EFE861351FAB2BC000111FD2 /* DBService.swift */,
 				EF58DEA91FD5962900947DD6 /* Book.swift */,
+				EFE861351FAB2BC000111FD2 /* DBService.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -182,6 +196,7 @@
 		EF58DEAB1FD5984E00947DD6 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				EF40E5091FD6D36B00F31006 /* UserCell.swift */,
 				EF58DEAC1FD59DA100947DD6 /* BookCell.swift */,
 				EF0F55F21FCD94360070260D /* SessionCell.swift */,
 			);
@@ -457,6 +472,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Acaid/Pods-Acaid-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -464,6 +481,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -542,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF40E5081FD6D1FA00F31006 /* CreateChatViewController.swift in Sources */,
 				EF661B2B1FCC590900FE4D19 /* CreateSessionViewController.swift in Sources */,
 				EF1EE42C1F8D006400F45A98 /* LoginViewController.swift in Sources */,
 				EF58DEA61FD575AE00947DD6 /* CalendarViewController.swift in Sources */,
@@ -549,15 +569,19 @@
 				EF58DEAD1FD59DA100947DD6 /* BookCell.swift in Sources */,
 				EFE8613A1FAB59ED00111FD2 /* PersonalProfileViewController.swift in Sources */,
 				EFFEE0731F8BBA0500D4294A /* AppDelegate.swift in Sources */,
+				EF40E50A1FD6D36B00F31006 /* UserCell.swift in Sources */,
 				EFE861381FAB59A100111FD2 /* ChatViewController.swift in Sources */,
 				EF0F55F31FCD94360070260D /* SessionCell.swift in Sources */,
 				EF58DEA41FD5759000947DD6 /* BookMarketViewController.swift in Sources */,
 				EFE861321FA78BE100111FD2 /* TabBarController.swift in Sources */,
+				EF40E50C1FD6DB6E00F31006 /* ActiveChatViewController.swift in Sources */,
 				EF0F55F11FCC6B700070260D /* Session.swift in Sources */,
 				EF58DEAA1FD5962900947DD6 /* Book.swift in Sources */,
 				EFB250BE1FB351C6002A8E5D /* FirstRegisterViewController.swift in Sources */,
 				EFA184561FD027D7006525D9 /* Tutor.swift in Sources */,
 				EF0F55EF1FCC6B5B0070260D /* User.swift in Sources */,
+				EF40E5041FD6CE0800F31006 /* Chat.swift in Sources */,
+				EF40E5061FD6D0AF00F31006 /* Message.swift in Sources */,
 				EF1EE42F1F8D00A700F45A98 /* RegisterViewController.swift in Sources */,
 				EF58DEA81FD586B000947DD6 /* CreateBookViewController.swift in Sources */,
 				EFE8613D1FAC7A0F00111FD2 /* PresentingViewController.swift in Sources */,

@@ -35,7 +35,7 @@ class BookMarketViewController: UIViewController, UITableViewDelegate, UITableVi
         toggle.layer.cornerRadius = 25
         toggle.center.x = self.view.center.x
         toggle.backgroundColor = UIColor.white
-        toggle.tintColor = UIColor(red: 0, green: 136, blue: 234, alpha: 1.0)
+        toggle.tintColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         toggle.addTarget(self, action: #selector(retrieveBooks), for: .allEvents)
         self.view.addSubview(toggle)
         

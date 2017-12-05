@@ -40,9 +40,11 @@ class SessionCell: UITableViewCell {
     func configureCell(session: Session) {
     
         self.contentView.frame = CGRect(x: self.contentView.frame.origin.x, y: self.contentView.frame.origin.y, width: self.contentView.frame.size.width, height: self.contentView.frame.size.height)
+        self.contentView.layer.cornerRadius = 50
+        self.contentView.layer.masksToBounds = true
 
-        self.picView.frame.size.height = self.contentView.frame.size.height - 2
-        self.picView.frame.size.width = self.contentView.frame.size.width / 8
+        self.picView.frame.size.height = self.contentView.frame.size.height / 2
+        self.picView.frame.size.width = self.picView.frame.size.height
         self.picView.center.y = self.contentView.center.y
         self.picView.frame.origin.x = self.contentView.frame.minX + 5
         self.picView.backgroundColor = UIColor.gray
