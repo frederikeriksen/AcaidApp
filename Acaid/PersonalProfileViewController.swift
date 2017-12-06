@@ -47,7 +47,7 @@ class PersonalProfileViewController: UIViewController {
         // Setup button to become tutor
         beTutor.frame.size.width = self.view.frame.size.width / 2
         beTutor.frame.size.height = 50
-        beTutor.frame.origin.y = self.view.frame.maxY - 80
+        beTutor.frame.origin.y = self.view.frame.maxY - 200
         beTutor.center.x = self.view.center.x
         beTutor.setTitle("Become Tutor", for: .normal)
         beTutor.setTitleColor(UIColor.black, for: .normal)
@@ -69,7 +69,23 @@ class PersonalProfileViewController: UIViewController {
         let curUID = Auth.auth().currentUser?.uid
         let userRef = Database.database().reference().child("Users")
         
-        
+        userRef.queryOrdered(byChild: "uid").queryEqual(toValue: curUID!).observe(.value, with: {(snapshot) in
+            let removeRef = Database.database().reference().child("Users")
+            let dict = snapshot.value as? NSDictionary
+            let newRef = Database.database().reference().child("Tutors")
+            newRef.childByAutoId().setValue([
+                "firstname": dict?["firstname"] as? String ?? "",
+                "lastname": dict?["lastname"] as? String ?? "",
+                "email": dict?["email"] as? String ?? "",
+                "university": dict?["university"] as? String ?? "",
+                "studyline": dict?["studyline"] as? String ?? "",
+                "rating": 0 as Int,
+                "nRaters": 0 as Int
+                ])
+            let nodeToRemove = removeRef.child(snapshot.key)
+            nodeToRemove.removeValue()
+            
+            })
         
     }
     
