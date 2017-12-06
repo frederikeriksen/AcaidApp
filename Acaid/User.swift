@@ -11,6 +11,7 @@ import Firebase
 
 class User {
 
+    // User attributes
     var key: String
     var firstName: String
     var lastName: String
@@ -19,6 +20,7 @@ class User {
     var studyLine: String
     //var profilePic: URL?
     
+    // Init user with snapshot from the Firebase Database
     init(snapshot: DataSnapshot) {
     
         let dict = snapshot.value as? NSDictionary

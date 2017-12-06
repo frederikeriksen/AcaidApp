@@ -11,12 +11,14 @@ import Firebase
 
 class Session {
     
+    // Session attributes
     //var key: String
     var title: String
     var desc: String
     var type: String
     var creator: String
 
+    // Init Session with snapshot from Firebase
     init(snapshot: DataSnapshot) {
         let dict = snapshot.value as? NSDictionary
         

@@ -47,6 +47,8 @@ class ChatViewController: UIViewController{ //UITableViewDelegate, UITableViewDa
         chatTable.frame.size.width = self.view.frame.size.width - 20
         self.view.addSubview(chatTable)
         
+        retrieveChats()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,6 +79,7 @@ class ChatViewController: UIViewController{ //UITableViewDelegate, UITableViewDa
         self.chatsArray = results.sorted(by: {(c1, c2) -> Bool in
             c1.content < c2.content
         })
+        print(self.chatsArray)
     }
     
     /*func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
