@@ -12,10 +12,8 @@ import Firebase
 class PersonalProfileViewController: UIViewController {
     
     let profileImageView = UIImageView()
-    let profileImage = UIImage()
     let name = UILabel()
-    let university = UILabel()
-    let studyLine = UILabel()
+    let beTutor = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,39 +25,36 @@ class PersonalProfileViewController: UIViewController {
         navBar.setItems([navItem], animated: false)
         self.view.addSubview(navBar)
         
+        // Setup imageview for profile picture
+        profileImageView.backgroundColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         profileImageView.frame.size.height = self.view.frame.size.height / 3
-        profileImageView.frame.size.width = self.view.frame.size.width / 1.5
-        profileImageView.frame.origin.y = navBar.frame.maxY + 20
+        profileImageView.frame.size.width = self.view.frame.size.width
         profileImageView.center.x = self.view.center.x
-        profileImageView.backgroundColor = UIColor.gray
-        profileImageView.layer.cornerRadius = 0.5 * profileImageView.frame.size.width
+        profileImageView.frame.origin.y = self.view.frame.origin.y
+        profileImageView.image = UIImage(named: "defaultPic")
         self.view.addSubview(profileImageView)
         
-        name.frame.size.height = 50
+        // Setup label with student name
         name.frame.size.width = self.view.frame.size.width
+        name.frame.size.height = 40
+        name.frame.origin.y = profileImageView.frame.maxY
         name.center.x = self.view.center.x
-        name.frame.origin.y = profileImageView.frame.maxY + 10
+        name.text = ""
         name.textAlignment = .center
-        name.font = UIFont.boldSystemFont(ofSize: 20)
+        name.font = UIFont.boldSystemFont(ofSize: 18)
         self.view.addSubview(name)
         
-        university.frame.size.height = 50
-        university.frame.size.width = self.view.frame.size.width
-        university.center.x = self.view.center.x
-        university.frame.origin.y = name.frame.maxY + 20
-        university.textAlignment = .center
-        university.font = UIFont.boldSystemFont(ofSize: 18)
-        self.view.addSubview(university)
+        // Setup button to become tutor
+        beTutor.frame.size.width = self.view.frame.size.width / 2
+        beTutor.frame.size.height = 50
+        beTutor.frame.origin.y = self.view.frame.maxY - 80
+        beTutor.center.x = self.view.center.x
+        beTutor.setTitle("Become Tutor", for: .normal)
+        beTutor.setTitleColor(UIColor.black, for: .normal)
+        beTutor.backgroundColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
+        beTutor.addTarget(self, action: #selector(becomeTutor(sender:)), for: .touchUpInside)
+        self.view.addSubview(beTutor)
         
-        studyLine.frame.size.height = 40
-        studyLine.frame.size.width = self.view.frame.size.width
-        studyLine.center.x = self.view.center.x
-        studyLine.frame.origin.y = university.frame.maxY
-        studyLine.textAlignment = .center
-        studyLine.font = UIFont.italicSystemFont(ofSize: 14)
-        self.view.addSubview(studyLine)
-        
-        configureProfile()
         
     }
 
@@ -68,18 +63,16 @@ class PersonalProfileViewController: UIViewController {
         
     }
     
-    func configureProfile() {
-        let userUID = Auth.auth().currentUser?.uid
+    func becomeTutor(sender: UIButton) {
         
-        let queryRef = Database.database().reference().child("Users").child(userUID!)
+        // Get id of current user
+        let curUID = Auth.auth().currentUser?.uid
+        let userRef = Database.database().reference().child("Users")
         
-        queryRef.observeSingleEvent(of: .value, with: {(snapshot) in
-            let thisUser = User(snapshot: snapshot)
-            self.name.text = thisUser.firstName + " " + thisUser.lastName
-            self.university.text = thisUser.university
-            self.studyLine.text = thisUser.studyLine
-        })
+        
         
     }
+    
+    
 
 }

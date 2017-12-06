@@ -335,6 +335,7 @@
 				TargetAttributes = {
 					EFFEE06E1F8BBA0500D4294A = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = S8BUYM84ER;
 						ProvisioningStyle = Automatic;
 					};
 					EFFEE0821F8BBA0500D4294A = {
@@ -732,6 +733,7 @@
 			baseConfigurationReference = 2859C26B1D9FA6CAD1688329 /* Pods-Acaid.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S8BUYM84ER;
 				INFOPLIST_FILE = Acaid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = acaid.Acaid;
@@ -745,6 +747,7 @@
 			baseConfigurationReference = FFB0911F24355AC0359E0797 /* Pods-Acaid.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S8BUYM84ER;
 				INFOPLIST_FILE = Acaid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = acaid.Acaid;
