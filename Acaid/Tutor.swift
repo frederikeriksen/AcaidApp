@@ -11,12 +11,12 @@ import Firebase
 
 class Tutor: User {
 
-    var rating: Int
+    var rating: Double
 
     override init(snapshot: DataSnapshot) {
         // Init user
         let dict = snapshot.value as? NSDictionary
-        rating = (dict?["rating"] as? Int)!
+        rating = (dict?["rating"] as? Double)! / (dict?["nRaters"] as? Double)!
         super.init(snapshot: snapshot)
     }
     

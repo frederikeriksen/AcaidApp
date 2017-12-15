@@ -18,10 +18,13 @@ class ChatViewController: UIViewController{ //UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /*-----------VIEW SETUP BEGIN----------*/
         self.view.backgroundColor = UIColor.white
         
         
         let navBar : UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
+        navBar.tintColor = UIColor.white
+        navBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         self.view.addSubview(navBar)
         let navItem = UINavigationItem(title: "Chats")
         navBar.setItems([navItem], animated: false)
@@ -46,6 +49,8 @@ class ChatViewController: UIViewController{ //UITableViewDelegate, UITableViewDa
         chatTable.frame.size.height = 100
         chatTable.frame.size.width = self.view.frame.size.width - 20
         self.view.addSubview(chatTable)
+        
+        /*--------------View Setup Done----------------*/
         
         retrieveChats()
         

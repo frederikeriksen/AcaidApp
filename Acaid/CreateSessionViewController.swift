@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import RNCryptor
+import CryptoSwift
 
 class CreateSessionViewController: UIViewController {
     
@@ -19,9 +21,12 @@ class CreateSessionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*-----------VIEW SETUP BEGIN----------*/
         self.view.backgroundColor = UIColor.white
         
         let navBar : UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
+        navBar.tintColor = UIColor.white
+        navBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         self.view.addSubview(navBar)
         let navItem = UINavigationItem(title: "Create Session")
         let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(exitCreation(sender:)))
@@ -68,6 +73,8 @@ class CreateSessionViewController: UIViewController {
         submit.addTarget(self, action: #selector(submitSession(sender:)), for: .touchUpInside)
         self.view.addSubview(submit)
         
+        /*--------------View Setup Done----------------*/
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,15 +91,33 @@ class CreateSessionViewController: UIViewController {
         if(titleInput?.isEmpty)! {
             displayError(message: "Every session needs a title, please provide one")
         } else if(toggle.selectedSegmentIndex == 0) {
+            
             // Register session as available in database
-            DBService().createSession(title: titleInput!, description: descriptionInput!, type: "available", initiator: (Auth.auth().currentUser?.uid)!)
-            self.present(vc, animated: true, completion: nil)
+            // 1. Check if session creator is in fact a registered tutor
+            let tutorRef = Database.database().reference().child("Users").child((Auth.auth().currentUser?.uid)!)
             
-        } else if(toggle.selectedSegmentIndex == 1) {
+            tutorRef.observe(.value, with: {(snapshot) in
+                let dict = snapshot.value as? NSDictionary
+                let isTutor = dict?["isTutor"] as? String ?? ""
+                // 2. if the returned snapshot from Firebase contains key: isTutor with value: false, this user is not a tutor and can therefore not create a tutoring session
+                if isTutor == "false" {
+                    self.displayError(message: "You need to be a tutor to create this session")
+                } else if isTutor == "true" {
+                    // If the returned snapshot contains key: isTutor with value: true, this user is a tutor and we therefore accept the creation of a tutoring session
+                    
+                    let rating = dict?["rating"] as? Double
+                    let nRates = dict?["nRaters"] as? Double
+                    let accRate = rating! / nRates!
+                        
+                        DBService().createSession(title: titleInput!, description: descriptionInput!, type: "available", initiator: (Auth.auth().currentUser?.uid)!, rating: accRate)
+                            self.present(vc, animated: true, completion: nil)
+                    }
+                })
+        }
+            else if(toggle.selectedSegmentIndex == 1) {
             // Register session as a request in database
-            DBService().createSession(title: titleInput!, description: descriptionInput!, type: "request", initiator: (Auth.auth().currentUser?.uid)!)
+            DBService().createSession(title: titleInput!, description: descriptionInput!, type: "request", initiator: (Auth.auth().currentUser?.uid)!, rating: 0)
             self.present(vc, animated: true, completion: nil)
-            
         }
     }
     
@@ -101,6 +126,8 @@ class CreateSessionViewController: UIViewController {
         let previousVC = TabBarController()
         self.present(previousVC, animated: true, completion: nil)
     }
+    
+    // Fetch the rating of currentuser if tutor, so we can append it to a session
     
     func displayError(message: String) {
         

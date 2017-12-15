@@ -16,6 +16,7 @@ class PresentingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /*-----------VIEW SETUP BEGIN----------*/
         self.view.backgroundColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         
         loadingText.text = "Loading..."
@@ -30,6 +31,7 @@ class PresentingViewController: UIViewController {
         
         self.view.addSubview(loadingText)
         
+        /*--------------View Setup Done----------------*/
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +58,9 @@ class PresentingViewController: UIViewController {
             print("User is logged in")
             let homeVC = TabBarController()
             self.present(homeVC, animated: true, completion: nil)
+            var window: UIWindow?
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window!.rootViewController = homeVC
             
         }
         
@@ -75,7 +80,9 @@ class PresentingViewController: UIViewController {
         
         let loginVC = LoginViewController()
         self.present(loginVC, animated: true, completion: nil)
-        
+        var window: UIWindow?
+        window = UIWindow(frame: UIScreen.main.bounds)
+        self.view.window!.rootViewController = loginVC
     }
     
 

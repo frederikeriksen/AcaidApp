@@ -19,9 +19,12 @@ class BookMarketViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*-----------VIEW SETUP BEGIN----------*/
         self.view.backgroundColor = UIColor.white
 
         let navBar : UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
+        navBar.tintColor = UIColor.white
+        navBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         self.view.addSubview(navBar)
         let navItem = UINavigationItem(title: "Book Market")
         navBar.setItems([navItem], animated: false)
@@ -62,6 +65,8 @@ class BookMarketViewController: UIViewController, UITableViewDelegate, UITableVi
         booksTable.frame.size.width = self.view.frame.size.width - 20
         self.view.addSubview(booksTable)
         
+        /*--------------View Setup Done----------------*/
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,7 +87,7 @@ class BookMarketViewController: UIViewController, UITableViewDelegate, UITableVi
     func retrieveBooks() {
         
         if(toggle.selectedSegmentIndex == 0) {
-            // Retrieve books for sale
+            // Retrieve books for sale and append to array of books
             Database.database().reference().child("Books").queryOrdered(byChild: "type").queryEqual(toValue: "sale").observe(.value, with: {(snapshot)in
                 var results = [Book]()
                 for book in snapshot.children {
@@ -98,7 +103,7 @@ class BookMarketViewController: UIViewController, UITableViewDelegate, UITableVi
                 print(error.localizedDescription)
             }
         }else if(toggle.selectedSegmentIndex == 1) {
-            // Retrieve buying requests
+            // Retrieve buying requests and append to array of books
             Database.database().reference().child("Books").queryOrdered(byChild: "type").queryEqual(toValue: "request").observe(.value, with: {(snapshot) in
                 var results = [Book]()
                 for book in snapshot.children {
@@ -117,10 +122,13 @@ class BookMarketViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Function return number of books in array
         return booksArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Fetching the cell we use to display each book
         let cell = booksTable.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath) as! BookCell
         
         cell.configureCell(book: booksArray[indexPath.row])
@@ -129,6 +137,7 @@ class BookMarketViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Tracking what row was pressed
         print("Did select this row")
     }
  

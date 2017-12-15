@@ -21,14 +21,19 @@ class TabBarController: UITabBarController {
         secondVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
         
         let thirdVC = PersonalProfileViewController()
-        thirdVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
+        thirdVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
         
         let fourthVC = BookMarketViewController()
         fourthVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 3)
         
         let tabBarList = [firstVC, secondVC, thirdVC, fourthVC]
         
+        tabBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
+        tabBar.tintColor = UIColor.white
+        
         viewControllers = tabBarList
+        
+        
         
     }
 

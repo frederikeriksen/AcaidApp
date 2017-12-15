@@ -18,6 +18,7 @@ class User {
     var email: String
     var university: String
     var studyLine: String
+    var isTutor: String
     //var profilePic: URL?
     
     // Init user with snapshot from the Firebase Database
@@ -30,6 +31,7 @@ class User {
         email = dict?["email"] as? String ?? ""
         university = dict?["university"] as? String ?? ""
         studyLine = dict?["studyline"] as? String ?? ""
+        isTutor = dict?["isTutor"] as? String ?? ""
     
     }
     

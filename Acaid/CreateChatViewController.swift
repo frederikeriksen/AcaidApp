@@ -19,9 +19,12 @@ class CreateChatViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /*-----------VIEW SETUP BEGIN----------*/
         self.view.backgroundColor = UIColor.white
         
         let navBar : UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
+        navBar.tintColor = UIColor.white
+        navBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         self.view.addSubview(navBar)
         let navItem = UINavigationItem(title: "Start Chat")
         let backButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(goBack(sender:)))
@@ -47,6 +50,8 @@ class CreateChatViewController: UIViewController, UITableViewDelegate, UITableVi
         userTable.frame.size.height = 100
         self.view.addSubview(userTable)
         
+        /*--------------View Setup Done----------------*/
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,6 +60,7 @@ class CreateChatViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        // Retrieve users of the app to a tableview
         retrieveUsers()
     }
     
@@ -64,7 +70,7 @@ class CreateChatViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func retrieveUsers() {
-        // Retrieve users from database available to chat
+        // Retrieve users from database available to chat and store in array
         let userRef = Database.database().reference().child("Users")
         userRef.observe(.value, with: {(snapshot) in
             var results = [User]()
@@ -74,6 +80,7 @@ class CreateChatViewController: UIViewController, UITableViewDelegate, UITableVi
             self.usersArray = results.sorted(by: {(u1, u2) -> Bool in
                 u1.firstName < u2.firstName
             })
+            // reloads tableview with array data
             self.userTable.reloadData()
             print(self.usersArray)
         }) {(error) in
@@ -82,10 +89,13 @@ class CreateChatViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Returns number of rows in array
         return usersArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Fetching cell used to display each user
         let cell = userTable.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCell
         
         cell.configureCell(user: usersArray[indexPath.row])
@@ -96,6 +106,7 @@ class CreateChatViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Keep track of which cell was selected
         let index = userTable.indexPathForSelectedRow
         let chatUser = usersArray[indexPath.row]
         let thisCell = userTable.cellForRow(at: index!) as UITableViewCell!

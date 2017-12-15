@@ -1,4 +1,5 @@
 PODS:
+  - CryptoSwift (0.6.9)
   - Firebase/Auth (4.7.0):
     - Firebase/Core
     - FirebaseAuth (= 4.4.0)
@@ -51,15 +52,19 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - RNCryptor (5.0.2)
 
 DEPENDENCIES:
+  - CryptoSwift (~> 0.6.9)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
   - JSQMessagesViewController
+  - RNCryptor
 
 SPEC CHECKSUMS:
+  CryptoSwift: a22f6ba238e9ce4d26ee7bf45b9ed82e7122d4a0
   Firebase: dbfb98ccec2dcfcd21ab9cc1b4981a3f3c8c5e26
   FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
   FirebaseAuth: cdeee95b528958dbb7dcf220ad0fb804d3a284b0
@@ -73,7 +78,8 @@ SPEC CHECKSUMS:
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   leveldb-library: 4f9eedf84ab46b4fa3b7893bf30714b2a1a74022
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  RNCryptor: 59b9f92e9fa8a1af74c32dc6b1af5e30ff5e1b64
 
-PODFILE CHECKSUM: 0a877146fb69fb2f7c6e22c9d53f1ae25d718970
+PODFILE CHECKSUM: db322122214cfe776a1a145714610f7c74da7872
 
 COCOAPODS: 1.3.1

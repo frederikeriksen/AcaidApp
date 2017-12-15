@@ -22,9 +22,12 @@ class CreateBookViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /*-----------VIEW SETUP BEGIN----------*/
         self.view.backgroundColor = UIColor.white
         
         let navBar : UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
+        navBar.tintColor = UIColor.white
+        navBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         self.view.addSubview(navBar)
         let navItem = UINavigationItem(title: "Upload Book")
         navBar.setItems([navItem], animated: false)
@@ -100,6 +103,8 @@ class CreateBookViewController: UIViewController {
         submit.addTarget(self, action: #selector(submitBook(sender:)), for: .touchUpInside)
         self.view.addSubview(submit)
         
+        /*--------------View Setup Done----------------*/
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,7 +123,7 @@ class CreateBookViewController: UIViewController {
         if(titleOfBook?.isEmpty)! {
             self.displayError(message: "Please set a title before submission!")
         } else {
-        
+            // Submit book as either a book for sale or a buying request
             if(toggle.selectedSegmentIndex == 0) {
                 DBService().bookCreation(title: titleOfBook!, description: descOfBook!, course: courseOfBook!, semester: semesterOfBook!, initiator: (Auth.auth().currentUser?.uid)!, type: "sale", price: priceOfBook! + "DKK")
                 print("Book uploaded")

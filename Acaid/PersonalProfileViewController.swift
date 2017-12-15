@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import RNCryptor
+import CryptoSwift
 
 class PersonalProfileViewController: UIViewController {
     
@@ -17,10 +19,13 @@ class PersonalProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        /*-----------VIEW SETUP BEGIN----------*/
         self.view.backgroundColor = UIColor.white
         
         let navBar : UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
+        navBar.tintColor = UIColor.white
+        navBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         let navItem = UINavigationItem(title: "Profile")
         navBar.setItems([navItem], animated: false)
         self.view.addSubview(navBar)
@@ -30,7 +35,7 @@ class PersonalProfileViewController: UIViewController {
         profileImageView.frame.size.height = self.view.frame.size.height / 3
         profileImageView.frame.size.width = self.view.frame.size.width
         profileImageView.center.x = self.view.center.x
-        profileImageView.frame.origin.y = self.view.frame.origin.y
+        profileImageView.frame.origin.y = self.view.frame.origin.y + navBar.frame.size.height
         profileImageView.image = UIImage(named: "defaultPic")
         self.view.addSubview(profileImageView)
         
@@ -55,6 +60,7 @@ class PersonalProfileViewController: UIViewController {
         beTutor.addTarget(self, action: #selector(becomeTutor(sender:)), for: .touchUpInside)
         self.view.addSubview(beTutor)
         
+        /*--------------View Setup Done----------------*/
         
     }
 
@@ -66,29 +72,47 @@ class PersonalProfileViewController: UIViewController {
     func becomeTutor(sender: UIButton) {
         
         // Get id of current user
-        let curUID = Auth.auth().currentUser?.uid
-        let userRef = Database.database().reference().child("Users")
+        let userRef = Database.database().reference().child("Users").child((Auth.auth().currentUser?.uid)!)
         
-        userRef.queryOrdered(byChild: "uid").queryEqual(toValue: curUID!).observe(.value, with: {(snapshot) in
-            let removeRef = Database.database().reference().child("Users")
+        userRef.observe(.value, with: {(snapshot) in
+            print(snapshot.key)
             let dict = snapshot.value as? NSDictionary
-            let newRef = Database.database().reference().child("Tutors")
-            newRef.childByAutoId().setValue([
-                "firstname": dict?["firstname"] as? String ?? "",
-                "lastname": dict?["lastname"] as? String ?? "",
-                "email": dict?["email"] as? String ?? "",
-                "university": dict?["university"] as? String ?? "",
-                "studyline": dict?["studyline"] as? String ?? "",
-                "rating": 0 as Int,
-                "nRaters": 0 as Int
+            let fName = dict?["firstname"] as? String ?? ""
+            let lName = dict?["lastname"] as? String ?? ""
+            let eMail = dict?["email"] as? String ?? ""
+            let uNiversity = dict?["university"] as? String ?? ""
+            let sTudyline = dict?["studyline"] as? String ?? ""
+            
+            let key = "gqLOHUiqQ0QjhuvI"
+            let iv = "gqLOHUiqQ0QjhuvI"
+            let encFname = try! fName.aesEncrypt(key: key, iv: iv)
+            let encLname = try! lName.aesEncrypt(key: key, iv: iv)
+            let encEmail = try! eMail.aesEncrypt(key: key, iv: iv)
+            let encUni = try! uNiversity.aesEncrypt(key: key, iv: iv)
+            let encStudy = try! sTudyline.aesEncrypt(key: key, iv: iv)
+            userRef.setValue([
+                "firstname": encFname,
+                "lastname": encLname,
+                "email": encEmail,
+                "university": encUni,
+                "studyline": encStudy,
+                "isTutor": "true",
+                "rating": 1 as Int,
+                "nRaters": 1 as Int
                 ])
-            let nodeToRemove = removeRef.child(snapshot.key)
-            nodeToRemove.removeValue()
             
             })
         
     }
-    
-    
 
+}
+
+extension String {
+    func aesEncrypt(key: String, iv: String) throws -> String {
+        let data = self.data(using: .utf8)!
+        let encrypted = try! AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7()).encrypt([UInt8](data))
+        let encryptedData = Data(encrypted)
+        return encryptedData.base64EncodedString()
+    }
+    
 }

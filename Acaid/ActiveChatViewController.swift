@@ -23,14 +23,19 @@ class ActiveChatViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /*-----------VIEW SETUP BEGIN----------*/
         self.view.backgroundColor = UIColor.white
         
         let navBar : UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
+        navBar.tintColor = UIColor.white
+        navBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         self.view.addSubview(navBar)
         let navItem = UINavigationItem(title: "Chatting with: " + (user?.firstName)! + " " + (user?.lastName)!)
         let backButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(goBack(sender:)))
         navBar.setItems([navItem], animated: false)
         navItem.leftBarButtonItem = backButton
+        
+        /*--------------View Setup Done----------------*/
         
         
         // Fetching ID and displayname of sender
@@ -116,13 +121,13 @@ class ActiveChatViewController: JSQMessagesViewController {
             "text": text!,
         ]
         mesRef.setValue(messageItem)
-        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        //JSQSystemSoundPlayer.jsq_playMessageSentSound()
         finishSendingMessage()
     }
     
     private func observeMessages() {
         let mesRef = Database.database().reference().child("Messages")
-        let messageQuery = mesRef.queryOrdered(byChild: "receiver").queryEqual(toValue: user?.key)
+        let messageQuery = mesRef.queryLimited(toLast:25)
         
         // 2. We can use the observe method to listen for new
         // messages being written to the Firebase DB

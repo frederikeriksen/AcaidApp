@@ -11,6 +11,8 @@ pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'JSQMessagesViewController'
+pod 'RNCryptor'
+pod 'CryptoSwift', '~> 0.6.9'
 end
   target 'AcaidTests' do
     inherit! :search_paths

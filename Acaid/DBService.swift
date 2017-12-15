@@ -46,7 +46,7 @@ class DBService {
     }
     
     // Function for registering a user in the database
-    func regUser(firstname: String, lastname: String, email: String, password: String, university: String, studyline: String) {
+    func regUser(firstname: String, lastname: String, email: String, password: String, university: String, studyline: String, isTutor: String) {
     
         Auth.auth().createUser(withEmail: email, password: password, completion: {(user, error)in
         
@@ -66,6 +66,7 @@ class DBService {
                         "password": password,
                         "university": university,
                         "studyline": studyline,
+                        "isTutor": "false"
                     
                     ])
                 print("Successfully registered!")
@@ -77,13 +78,13 @@ class DBService {
     }
     
     // Function for creating a tutoring session or tutoring request
-    func createSession(title: String, description: String, type: String, initiator: String) {
+    func createSession(title: String, description: String, type: String, initiator: String, rating: Double) {
         self.firebaseRef.child("Sessions").childByAutoId().setValue([
                 "title": title,
                 "description": description,
                 "type": type,
-                "initiator": initiator
-              
+                "initiator": initiator,
+                "rating": rating
             ])
         print("Session created!")
     }

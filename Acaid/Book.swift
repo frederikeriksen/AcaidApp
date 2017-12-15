@@ -12,6 +12,7 @@ import Firebase
 class Book {
 
     // Book Attributes
+    var key: String
     var title: String
     var initiator: String
     var description: String
@@ -23,6 +24,7 @@ class Book {
     // Init user with snapshot from Firebase Database
     init(snapshot: DataSnapshot) {
         let dict = snapshot.value as? NSDictionary
+        key = snapshot.key
         title = dict?["title"] as? String ?? ""
         initiator = dict?["initiator"] as? String ?? ""
         description = dict?["description"] as? String ?? ""
