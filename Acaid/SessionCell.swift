@@ -102,6 +102,17 @@ class SessionCell: UITableViewCell {
         self.addSubview(titleLabel)
         self.addSubview(descLabel)
         self.addSubview(ratingView)
+        
+        if session.pressedBy == "none" {
+            titleLabel.text = session.title
+        } else {
+            titleLabel.text = session.title + " (!)"
+        }
+        
+        if session.wasAccepted == "active" {
+            titleLabel.text = session.title
+            titleLabel.textColor = UIColor.green
+        }
     }
 
 }

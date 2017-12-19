@@ -15,21 +15,26 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
 
         let firstVC = ViewController()
-        firstVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+        firstVC.tabBarItem.title = "Home"
         
-        let secondVC = ChatViewController()
-        secondVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+        let secondVC = CalendarViewController()
+        secondVC.tabBarItem.title = "Calendar"
         
-        let thirdVC = PersonalProfileViewController()
-        thirdVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
+        let thirdVC = ChatViewController()
+        thirdVC.tabBarItem.title = "Chat"
         
         let fourthVC = BookMarketViewController()
-        fourthVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 3)
+        fourthVC.tabBarItem.title = "Market"
         
-        let tabBarList = [firstVC, secondVC, thirdVC, fourthVC]
+        let fifthVC = PersonalProfileViewController()
+        fifthVC.tabBarItem.title = "Profile"
+        
+        let tabBarList = [firstVC, secondVC, thirdVC, fourthVC, fifthVC]
         
         tabBar.barTintColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
         tabBar.tintColor = UIColor.white
+        
+        viewControllers = tabBarList
         
         viewControllers = tabBarList
         

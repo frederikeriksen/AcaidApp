@@ -178,19 +178,39 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let sessionTitle = index.title
         let sessionDesc = index.desc
         let sessionType = index.type
+        let sessionRating = index.tutorRating
         let initiator = index.creator
+        let pressed = index.pressedBy
+        let status = index.wasAccepted
         if(initiator == userUID) {
-            self.displayError(message: "You cannot attend your own session!")
+            if pressed == "none" {
+                displayError(message: "You cannot attend your own session")
+            } else if pressed != "none" && pressed != userUID {
+                    let nextVC = SessionViewController()
+                    let hi = index
+                    nextVC.ses = hi
+                    Database.database().reference().child("Users").child(pressed).observe(.value, with: {(snapshot) in
+                        print(snapshot)
+                        let thisUser = User.init(snapshot: snapshot)
+                        nextVC.user = thisUser
+                        
+                        self.present(nextVC, animated: true, completion: nil)
+                    })
+            }
         } else {
-        let thisRef = Database.database().reference().child("Sessions").child(sessionID)
-        thisRef.setValue([
-            "title": sessionTitle,
-            "description": sessionDesc,
-            "type": sessionType,
-            "initiator": initiator,
-            "pressedBy": userUID
-            ])
-        print("You selected this row")
+            if pressed == "none" {
+                let thisRef = Database.database().reference().child("Sessions").child(sessionID)
+                thisRef.setValue([
+                    "title": sessionTitle,
+                    "description": sessionDesc,
+                    "type": sessionType,
+                    "rating": sessionRating,
+                    "initiator": initiator,
+                    "status": status,
+                    "pressedBy": userUID!
+                    ])
+                print("You selected this row")
+            }
         }
     }
     

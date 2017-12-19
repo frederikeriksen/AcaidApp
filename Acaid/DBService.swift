@@ -78,12 +78,14 @@ class DBService {
     }
     
     // Function for creating a tutoring session or tutoring request
-    func createSession(title: String, description: String, type: String, initiator: String, rating: Double) {
+    func createSession(title: String, description: String, type: String, initiator: String, rating: Double, pressed: String, status: String) {
         self.firebaseRef.child("Sessions").childByAutoId().setValue([
                 "title": title,
                 "description": description,
                 "type": type,
                 "initiator": initiator,
+                "pressedBy": pressed,
+                "status": status,
                 "rating": rating
             ])
         print("Session created!")

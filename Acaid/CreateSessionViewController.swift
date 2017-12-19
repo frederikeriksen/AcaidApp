@@ -109,14 +109,14 @@ class CreateSessionViewController: UIViewController {
                     let nRates = dict?["nRaters"] as? Double
                     let accRate = rating! / nRates!
                         
-                        DBService().createSession(title: titleInput!, description: descriptionInput!, type: "available", initiator: (Auth.auth().currentUser?.uid)!, rating: accRate)
+                        DBService().createSession(title: titleInput!, description: descriptionInput!, type: "available", initiator: (Auth.auth().currentUser?.uid)!, rating: accRate, pressed: "none", status: "none")
                             self.present(vc, animated: true, completion: nil)
                     }
                 })
         }
             else if(toggle.selectedSegmentIndex == 1) {
             // Register session as a request in database
-            DBService().createSession(title: titleInput!, description: descriptionInput!, type: "request", initiator: (Auth.auth().currentUser?.uid)!, rating: 0)
+            DBService().createSession(title: titleInput!, description: descriptionInput!, type: "request", initiator: (Auth.auth().currentUser?.uid)!, rating: 0, pressed: "none", status: "nome")
             self.present(vc, animated: true, completion: nil)
         }
     }

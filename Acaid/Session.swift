@@ -19,6 +19,7 @@ class Session {
     var creator: String
     var tutorRating: Double
     var pressedBy: String
+    var wasAccepted: String
 
     // Init Session with snapshot from Firebase
     init(snapshot: DataSnapshot) {
@@ -31,6 +32,7 @@ class Session {
         creator = dict?["initiator"] as? String ?? ""
         tutorRating = (dict?["rating"] as? Double)!
         pressedBy = dict?["pressedBy"] as? String ?? ""
+        wasAccepted = dict?["status"] as? String ?? ""
         
         }
         
