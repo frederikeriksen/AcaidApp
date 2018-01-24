@@ -15,6 +15,7 @@ class ActiveChatViewController: JSQMessagesViewController {
     var user: User?
     
     var messages = [JSQMessage]()
+    var realMes = [Message]()
     private var newMessageRefHandle: DatabaseHandle?
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setUpOutgoingBubble()
@@ -137,6 +138,7 @@ class ActiveChatViewController: JSQMessagesViewController {
             
             if let id = messageData["senderId"] as String!, let name = messageData["senderName"] as String!, let text = messageData["text"] as String!, text.characters.count > 0 {
                 // 4
+                
                 self.addMessage(withId: id, name: name, text: text)
                 
                 // 5

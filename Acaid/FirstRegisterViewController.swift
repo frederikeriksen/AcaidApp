@@ -104,7 +104,6 @@ class FirstRegisterViewController: UIViewController {
         nextButton.frame.origin.x = self.view.frame.maxX - nextButton.frame.size.width - 5
         nextButton.frame.origin.y = self.view.frame.maxY - nextButton.frame.size.height - 20
         nextButton.isUserInteractionEnabled = true
-        nextButton.addTarget(self, action: #selector(goToNext(sender:)), for: .touchUpInside)
         
         cancelButton.backgroundColor = UIColor.white
         cancelButton.setTitle("Cancel", for: .normal)
@@ -134,6 +133,10 @@ class FirstRegisterViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        nextButton.addTarget(self, action: #selector(goToNext(sender:)), for: .touchUpInside)
     }
     
     func cancelReg(sender: UIButton) {

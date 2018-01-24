@@ -18,7 +18,9 @@ class PersonalProfileViewController: UIViewController {
     let profileImageView = UIImageView()
     let name = UILabel()
     let uniLabel = UILabel()
+    let descLabel = UITextView()
     let beTutor = UIButton()
+    let butInfo = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +45,9 @@ class PersonalProfileViewController: UIViewController {
         profileContentView.layer.borderColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0).cgColor
         
         // Setup about content view
-        aboutContentView.frame.size.height = profileContentView.frame.size.height
+        aboutContentView.frame.size.height = self.view.frame.size.height - profileContentView.frame.size.height
         aboutContentView.frame.size.width = profileContentView.frame.size.width
-        aboutContentView.frame.origin.y = profileContentView.frame.maxX
+        aboutContentView.frame.origin.y = profileContentView.frame.maxY
         aboutContentView.frame.origin.x = self.view.frame.origin.x
         aboutContentView.backgroundColor = UIColor.white
         
@@ -61,11 +63,11 @@ class PersonalProfileViewController: UIViewController {
         // Setup label with student name
         name.frame.size.width = self.view.frame.size.width - profileImageView.frame.maxX
         name.frame.size.height = 35
-        name.frame.origin.y = profileImageView.frame.origin.y
+        name.frame.origin.y = profileImageView.frame.origin.y + profileImageView.frame.size.height
         name.frame.origin.x = profileImageView.frame.maxX - 30
         name.text = "Name: "
         name.textAlignment = .center
-        name.font = UIFont.boldSystemFont(ofSize: 18)
+        name.font = UIFont.italicSystemFont(ofSize: 14)
         profileContentView.addSubview(name)
         
         // Setup University label
@@ -75,21 +77,41 @@ class PersonalProfileViewController: UIViewController {
         uniLabel.frame.origin.x = name.frame.origin.x
         uniLabel.text = "University: "
         uniLabel.textAlignment = .center
-        uniLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        uniLabel.font = UIFont.italicSystemFont(ofSize: 14)
         profileContentView.addSubview(uniLabel)
         
+        // Setup description Label
+        descLabel.frame.size.width = self.view.frame.size.width - 10
+        descLabel.frame.size.height = self.aboutContentView.frame.size.height - 10
+        descLabel.frame.origin.y = self.aboutContentView.frame.origin.y + 5
+        descLabel.frame.origin.x = self.aboutContentView.frame.origin.x + 5
+        descLabel.text = ""
+        descLabel.font = UIFont.italicSystemFont(ofSize: 14)
+        descLabel.textColor = UIColor.black
+        // aboutContentView.addSubview(descLabel)
+        
         // Setup button to become tutor
-        beTutor.frame.size.width = self.view.frame.size.width / 2
+        beTutor.frame.size.width = self.view.frame.size.width / 6
         beTutor.frame.size.height = 50
-        beTutor.frame.origin.y = self.view.frame.maxY - 200
-        beTutor.center.x = self.view.center.x
-        beTutor.setTitle("Become Tutor", for: .normal)
+        beTutor.frame.origin.y = profileImageView.frame.origin.y + 10
+        beTutor.frame.origin.x = self.view.frame.maxX - 120
+        beTutor.setTitle("+", for: .normal)
         beTutor.setTitleColor(UIColor.black, for: .normal)
-        beTutor.backgroundColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0)
+        beTutor.backgroundColor = UIColor.orange
         beTutor.addTarget(self, action: #selector(becomeTutor(sender:)), for: .touchUpInside)
-        self.view.addSubview(beTutor)
+        profileContentView.addSubview(beTutor)
+        
+        butInfo.frame.size.height = 50
+        butInfo.frame.size.width = 100
+        butInfo.frame.origin.y = beTutor.frame.maxY
+        butInfo.frame.origin.x = beTutor.frame.origin.x
+        butInfo.textColor = UIColor.black
+        butInfo.text = "Click + to become a tutor"
+        butInfo.font = UIFont.italicSystemFont(ofSize: 8)
+        profileContentView.addSubview(butInfo)
         
         self.view.addSubview(profileContentView)
+        self.view.addSubview(descLabel)
         
         /*--------------View Setup Done----------------*/
         
@@ -114,23 +136,49 @@ class PersonalProfileViewController: UIViewController {
             let fName = dict?["firstname"] as? String ?? ""
             let lName = dict?["lastname"] as? String ?? ""
             let uni = dict?["university"] as? String ?? ""
+            let studyLine = dict?["studyline"] as? String ?? ""
             let istut = dict?["isTutor"] as? String ?? ""
             
             // Update labels to contain users info
             self.name.text = "Name: " + fName + " " + lName
             self.uniLabel.text = "University: " + uni
+            self.descLabel.text = "My name is: " + fName + " " + lName + ". \nI am a student at: " + uni + " at which i am enrolled in the: " + studyLine + " study line. \n \nLooking forward to many nice tutoring sessions and everything this app has to offer. \n \nLeave me a message for more info..."
             
             // Check if user is tutor. If yes, remove becomeTutor button
             if istut == "true" {
                 self.beTutor.removeFromSuperview()
+                self.butInfo.removeFromSuperview()
             }
         })
     }
     
     func becomeTutor(sender: UIButton) {
         
+        // Change isTutor to true
+        let uRef = Database.database().reference().child("Users").child((Auth.auth().currentUser?.uid)!)
+        
+        uRef.observe(.value, with: {(snapshot) in
+            let dict = snapshot.value as? NSDictionary
+            let firstName = dict?["firstname"] as? String ?? ""
+            let lastName = dict?["lastname"] as? String ?? ""
+            let email = dict?["email"] as? String ?? ""
+            let university = dict?["university"] as? String ?? ""
+            let studyline = dict?["studyline"] as? String ?? ""
+            
+            uRef.setValue([
+                "firstname": firstName,
+                "lastname": lastName,
+                "email": email,
+                "university": university,
+                "studyline": studyline,
+                "isTutor": "true",
+                "rating": 1 as Int,
+                "nRaters": 1 as Int
+                ])
+        })
+        
         // Get id of current user
-        let userRef = Database.database().reference().child("Users").child((Auth.auth().currentUser?.uid)!)
+        let userRef = Database.database().reference().child("Tutors").child((Auth.auth().currentUser?.uid)!)
         
         userRef.observe(.value, with: {(snapshot) in
             print(snapshot.key)

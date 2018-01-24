@@ -102,6 +102,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 for session in snapshot.children {
                     
                     results.append(Session(snapshot: session as! DataSnapshot))
+                    
                 }
                 self.sessionsArray = results.sorted(by: {(s1, s2) -> Bool in
                     s1.title < s2.title
@@ -182,6 +183,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let initiator = index.creator
         let pressed = index.pressedBy
         let status = index.wasAccepted
+        if(pressed != "none") {
+            if(initiator != userUID) {
+                displayError(message: "Session is occupied")
+            }
+        }
         if(initiator == userUID) {
             if pressed == "none" {
                 displayError(message: "You cannot attend your own session")

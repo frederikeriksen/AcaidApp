@@ -75,6 +75,7 @@ class RegisterViewController: UIViewController {
         passField.autocapitalizationType = UITextAutocapitalizationType.none
         passField.layer.borderColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0).cgColor
         passField.layer.borderWidth = 1.5
+        passField.isSecureTextEntry = true
         
         // Setup repeat password textfield
         repPassField.placeholder = "Repeat Password"
@@ -86,6 +87,7 @@ class RegisterViewController: UIViewController {
         repPassField.autocapitalizationType = UITextAutocapitalizationType.none
         repPassField.layer.borderColor = UIColor(red: 0, green: 0.4118, blue: 0.5843, alpha: 1.0).cgColor
         repPassField.layer.borderWidth = 1.5
+        repPassField.isSecureTextEntry = true
         
         // Setup number label
         numberLabel.frame.size.height = 40
@@ -106,7 +108,6 @@ class RegisterViewController: UIViewController {
         regButton.center.x = self.view.center.x
         regButton.frame.origin.y = repPassField.frame.origin.y + 70
         regButton.isUserInteractionEnabled = true
-        regButton.addTarget(self, action: #selector(handleRegistration(sender:)), for: .touchUpInside)
         
         backButton.backgroundColor = UIColor.white
         backButton.setTitle("<Back", for: .normal)
@@ -137,6 +138,10 @@ class RegisterViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        regButton.addTarget(self, action: #selector(handleRegistration(sender:)), for: .touchUpInside)
     }
     
     func handleRegistration(sender: UIButton) {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SessionCell: UITableViewCell {
     
@@ -55,7 +56,7 @@ class SessionCell: UITableViewCell {
         self.titleLabel.frame.origin.x = self.picView.frame.maxX + 20
         self.titleLabel.frame.origin.y = self.contentView.frame.origin.y
         self.titleLabel.text = session.title
-        self.titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        self.titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
         self.titleLabel.textAlignment = .center
         
         self.descLabel.frame.size.width = self.titleLabel.frame.size.width
@@ -105,13 +106,17 @@ class SessionCell: UITableViewCell {
         
         if session.pressedBy == "none" {
             titleLabel.text = session.title
-        } else {
-            titleLabel.text = session.title + " (!)"
+        } else if session.pressedBy != "none" && session.pressedBy != Auth.auth().currentUser?.uid {
+            titleLabel.text = session.title + "   (occupied)"
         }
         
         if session.wasAccepted == "active" {
-            titleLabel.text = session.title
-            titleLabel.textColor = UIColor.green
+            if session.pressedBy != Auth.auth().currentUser?.uid {
+                titleLabel.text = session.title + "   (occupied)"
+            } else if session.pressedBy == Auth.auth().currentUser?.uid {
+                titleLabel.text = session.title + "   (accepted!)"
+                titleLabel.textColor = UIColor.green
+            }
         }
     }
 
